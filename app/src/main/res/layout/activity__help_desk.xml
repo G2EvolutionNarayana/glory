@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#424242"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@drawable/borderlogin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageViewprofile"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="left"
+                    android:src="@mipmap/ic_launcher_icon_round" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bordercurvellayout">
+
+                    <LinearLayout
+                        android:id="@+id/linearemailid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_margin="5dp">
+                        <ImageView
+                            android:id="@+id/fedderthumbnail"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            tools:civ_border_color="@color/colorWhite"
+                            tools:civ_border_width="0.5dp"
+                            android:src="@drawable/emailusicon"
+                            android:tint="@color/white"
+                            android:padding="5dp"/>
+
+                        <TextView
+                            android:id="@+id/feedername"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="EMAIL US"
+                            android:textSize="20dp"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/white"
+                            />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bordercurvellayout">
+
+                    <LinearLayout
+                        android:id="@+id/linearfaq"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_margin="5dp">
+                        <ImageView
+                            android:id="@+id/fedderthumbnail2"
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            tools:civ_border_color="@color/colorWhite"
+                            tools:civ_border_width="0.5dp"
+                            android:src="@drawable/faqicon"
+                            android:tint="@color/white"
+                            android:padding="5dp"/>
+
+                        <TextView
+                            android:id="@+id/feedername2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="FAQ"
+                            android:textSize="20dp"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/white"
+                            />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

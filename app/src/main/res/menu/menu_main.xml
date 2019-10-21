@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item android:id="@+id/nav_home"
+            android:icon="@drawable/ic_action_home"
+            android:title="Home" />
+
+        <item android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_action_profile"
+            android:title="My Profile" />
+
+        <item android:id="@+id/nav_balance"
+            android:icon="@drawable/wallet"
+            android:title="My Balance" />
+
+        <item android:id="@+id/nav_rewards"
+            android:icon="@drawable/gift"
+            android:title="@string/m_r_o" />
+
+        <item android:id="@+id/nav_info"
+            android:icon="@drawable/setting"
+            android:title="@string/m_i" />
+
+        <item android:id="@+id/nav_pointsystem"
+            android:icon="@drawable/oneicon"
+            android:title="Point System" />
+
+
+    </group>
+
+
+<!--<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <group android:id="@+id/grp1"
+        android:checkableBehavior="single" >
+        <item
+            android:id="@+id/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/profile"
+            android:title="Profile" />
+        <item
+            android:id="@+id/profile"
+            android:title="Profile" />
+
+
+    </group>-->
+
+
+  <!--  <group android:id="@+id/grp3" android:checkableBehavior="single" >
+
+        <item
+            android:id="@+id/profile"
+            android:title="Profile" />
+    </group>
+
+
+    <group android:id="@+id/grp13" android:checkableBehavior="single" >
+
+        <item
+            android:id="@+id/changepassword"
+            android:title="Change Password" />
+    </group>
+
+    <group android:id="@+id/grp2" android:checkableBehavior="single" >
+
+        <item
+            android:id="@+id/aboutus"
+            android:title="About Us" />
+    </group>
+    <group android:id="@+id/grp15" android:checkableBehavior="single" >
+
+        <item
+            android:id="@+id/contactus"
+            android:title="Contact Us" />
+    </group>
+    <group android:id="@+id/grp16" android:checkableBehavior="single" >
+
+        <item
+            android:id="@+id/logout"
+            android:title="Logout" />
+    </group>
+-->
+</menu>

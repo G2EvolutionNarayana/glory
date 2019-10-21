@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        android:layout_gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HELP DESK"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="18dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <ImageView
+                android:id="@+id/imgcancel"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/cancel4"
+                android:padding="10dp"
+                android:layout_alignParentRight="true"
+                android:tint="@color/black"
+                android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordercurvellayout">
+
+                <LinearLayout
+                    android:id="@+id/linearemailid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="5dp">
+                    <ImageView
+                        android:id="@+id/fedderthumbnail"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        tools:civ_border_color="@color/colorWhite"
+                        tools:civ_border_width="0.5dp"
+                        android:src="@drawable/emailusicon"
+                        android:tint="@color/white"
+                        android:padding="5dp"/>
+
+                    <TextView
+                        android:id="@+id/feedername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="EMAIL US"
+                        android:textSize="20dp"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/white"
+                        />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordercurvellayout">
+
+                <LinearLayout
+                    android:id="@+id/linearfaq"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="5dp">
+                    <ImageView
+                        android:id="@+id/fedderthumbnail2"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        tools:civ_border_color="@color/colorWhite"
+                        tools:civ_border_width="0.5dp"
+                        android:src="@drawable/faqicon"
+                        android:tint="@color/white"
+                        android:padding="5dp"/>
+
+                    <TextView
+                        android:id="@+id/feedername2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="FAQ"
+                        android:textSize="20dp"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/white"
+                        />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

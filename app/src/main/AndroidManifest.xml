@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.glory">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_icon_new"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_icon_new_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activity.Activity_FantasyPointSystem"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activity.Activity_HTP_Balance"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Activity_HTP_ManageTeam"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.Activity_HTP_CreateTeam"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Activity_HTPIntroduction"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.Activity_Legality"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Activity_HelpDesk"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.Activity_Howtoplay"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.Activity_InviteFriends"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.Activity_Navigation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Activity_PointSystem"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.Activity_InfoSettings"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Activity_Rewards"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.Activity_Balance"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.Activity_PP"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Activity_TC"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activity.Activity_ContactUs"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".Activity.Activity_AboutUs"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Activity_Change_Pwd"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activity.Activity_Profile"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.ActivityForgetPassword"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.Activity_SignupOtp"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".Activity.Activity_Signup"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.Activity_Login"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".Activity.Activity_Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

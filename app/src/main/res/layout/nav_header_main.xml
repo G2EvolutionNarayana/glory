@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listview_drawer_item_row"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@color/colorPrimary"
+    android:gravity="top"
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingTop="0dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="0dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <RelativeLayout
+        android:id="@+id/relativelayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageViewprofile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="left"
+            android:src="@drawable/user" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/relativelayout1"
+        android:layout_toLeftOf="@+id/linearlayout3">
+
+        <TextView
+            android:id="@+id/drawer_title_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:gravity="left"
+            android:text="Glory5"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/drawer_titleemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="glory@pgmail.com"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout3"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/imgwallet"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/wallet"
+            android:tint="@color/white"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/textwallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radiobg"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textSize="25dp"
+            android:text="@string/Rswallet"
+            android:layout_below="@+id/imgwallet"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

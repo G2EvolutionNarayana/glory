@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#424242"
+    tools:context=".Activity.Activity_Profile">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="@drawable/borderlogin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageViewprofile"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="left"
+                    android:src="@mipmap/ic_launcher_icon_round" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/p_p"
+                android:textColor="@color/colorPrimary"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:textSize="13dp"
+                android:textColor="@color/white"
+
+                android:textAlignment="center"
+                android:text="Your privacy is critically important to us. At Automattic, we have a few fundamental principles:
+
+We are thoughtful about the personal information we ask you to provide and the personal information that we collect about you through the operation of our services.
+We store personal information for only as long as we have a reason to keep it.
+We aim to make it as simple as possible for you to control what information on your website is shared publicly (or kept private), indexed by search engines, and permanently deleted.
+We help protect you from overreaching government demands for your personal information.
+We aim for full transparency on how we gather, use, and share your personal information."/>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

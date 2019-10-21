@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Glory5</string>
+    <dimen name="drawer_width">300dp</dimen>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="purpose">Feel free to contact us at any time using our contact form or one of the below contact number</string>
+    <string name="t_c">Terms &amp; Conditions</string>
+    <string name="m_r_o">My Rewards &amp; Offers</string>
+    <string name="m_i">My Info &amp; Settings</string>
+
+    <string name="p_p">Privacy &amp; Policy</string>
+
+
+    <string name="Rs">\u20B9</string>
+    <string name="Rswallet">\u20B9 50</string>
+
+    <string name="Rs100">\u20B9 100</string>
+    <string name="Rs200">\u20B9 200</string>
+    <string name="Rs500">\u20B9 500</string>
+</resources>
