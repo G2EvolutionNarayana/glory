@@ -74,7 +74,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/username"
+                    android:id="@+id/editusername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
@@ -95,7 +95,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/mailid"
+                    android:id="@+id/editmailid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
@@ -118,7 +118,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/mobileno"
+                    android:id="@+id/editmobileno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
@@ -142,7 +142,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/editpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
@@ -166,7 +166,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/refferalcode"
+                    android:id="@+id/editrefferalcode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"

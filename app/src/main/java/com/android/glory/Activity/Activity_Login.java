@@ -17,6 +17,8 @@ public class Activity_Login extends AppCompatActivity {
 
     TextView signup,forgetpasswd,logmob,logpassword;
 
+    String strmobileno, strpassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,23 +35,22 @@ public class Activity_Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-              /*  if(logmob.getText().toString().trim().isEmpty() || logmob.getText().toString().trim().contains("null")
-                || logmob.getText().toString().trim().length() >=10 || logmob.getText().toString().trim().length() <= 13)
-                {
-                    logmob.setError("Please enter valid mobile number");
-                }else if(logpassword.getText().toString().trim().isEmpty() || logpassword.getText().toString().trim().contains("null") ||
-                        logpassword.getText().toString().trim().length() >= 8 || logpassword.getText().toString().trim().length() <= 12)
-                {
-                    logpassword.setError("Please enter valid password");
-                }else {
+
+                strmobileno = logmob.getText().toString();
+                strpassword = logpassword.getText().toString();
+
+                if(strmobileno==null || strmobileno.equals("null") || strmobileno.length()!=10){
+                    logmob.setError("Please Enter Valid Mobile number");
+                }else if(strpassword==null || strpassword.equals("null") || strpassword.length()==0){
+                    logpassword.setError("Please Enter Valid Password");
+                }else{
                     Intent intent = new Intent(Activity_Login.this, MainActivity.class);
                     startActivity(intent);
                     finish();
+                }
 
-                }*/
-                Intent intent = new Intent(Activity_Login.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+
+
 
 
 

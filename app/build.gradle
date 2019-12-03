@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
+    useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.android.glory"
         minSdkVersion 16
@@ -17,6 +18,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    allprojects {
+        repositories {
+            maven {
+                url 'https://jitpack.io'
+            }
+
+        }
+    }
+
+
+
 }
 
 dependencies {
