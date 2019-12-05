@@ -21,6 +21,7 @@ import com.android.glory.MainActivity;
 import com.android.glory.R;
 import com.android.glory.Utilites.EndUrls;
 import com.android.glory.Utilites.JSONParser;
+import com.android.glory.Utilites.sharedPrefs;
 import com.chaos.view.PinView;
 
 import org.apache.http.NameValuePair;
@@ -214,9 +215,9 @@ public class Activity_SignupOtp extends AppCompatActivity {
 
 
                 Intent intent =new Intent(Activity_SignupOtp.this, MainActivity.class);
-                SharedPreferences prefuserdata =  Activity_SignupOtp.this.getSharedPreferences("registerUser", 0);
+                SharedPreferences prefuserdata =  Activity_SignupOtp.this.getSharedPreferences(sharedPrefs.Pref, 0);
                 SharedPreferences.Editor prefeditor =prefuserdata.edit();
-                prefeditor.putString("userId",""+validuser_id);
+                prefeditor.putString(sharedPrefs.Pref_userId,""+validuser_id);
 
                 prefeditor.commit();
 
@@ -345,8 +346,8 @@ public class Activity_SignupOtp extends AppCompatActivity {
                 Toast.makeText(Activity_SignupOtp.this, strmessage, Toast.LENGTH_SHORT).show();
 
               /*  Intent intent =new Intent(Activity_SignupOtp.this, MainActivity.class);
-                SharedPreferences prefuserdata =  Activity_SignupOtp.this.getSharedPreferences("registerUser", 0);
-                SharedPreferences.Editor prefeditor =prefuserdata.edit();
+                sharedPrefs prefuserdata =  Activity_SignupOtp.this.getSharedPreferences("registerUser", 0);
+                sharedPrefs.Editor prefeditor =prefuserdata.edit();
                 prefeditor.putString("validuser_id",""+validuser_id);
 
                 prefeditor.commit();

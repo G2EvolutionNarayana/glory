@@ -2,14 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.glory">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
 
     <application
         android:allowBackup="true"
@@ -19,50 +17,70 @@
         android:roundIcon="@mipmap/ic_launcher_icon_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activity_Testing2" />
 
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
-        <uses-library android:name="org.apache.http.legacy" android:required="false" />
-
-        <activity android:name=".Activity.Activity_FantasyPointSystem"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Activity.Activity_HTP_Balance"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.Activity_HTP_ManageTeam"
+        <activity
+            android:name=".Activity.Activity_FantasyPointSystem"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.Activity_HTP_CreateTeam"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.Activity_HTPIntroduction"
+        <activity
+            android:name=".Activity.Activity_HTP_Balance"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.Activity_Legality"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.Activity_HelpDesk"
+        <activity
+            android:name=".Activity.Activity_HTP_ManageTeam"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.Activity_Howtoplay"
+        <activity
+            android:name=".Activity.Activity_HTP_CreateTeam"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.Activity_InviteFriends"
+        <activity
+            android:name=".Activity.Activity_HTPIntroduction"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.Activity_Navigation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.Activity_PointSystem"
+        <activity
+            android:name=".Activity.Activity_Legality"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.Activity_InfoSettings"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.Activity_Rewards"
+        <activity
+            android:name=".Activity.Activity_HelpDesk"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.Activity_Balance"
+        <activity
+            android:name=".Activity.Activity_Howtoplay"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.Activity_PP"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.Activity_TC"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activity.Activity_InviteFriends"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.Activity_Navigation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.Activity_PointSystem"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.Activity_InfoSettings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.Activity_Rewards"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.Activity_Balance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.Activity_PP"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.Activity_TC"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activity.Activity_ContactUs"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".Activity.Activity_AboutUs"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.Activity_Change_Pwd"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activity.Activity_AboutUs"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.Activity_Change_Pwd"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activity.Activity_Profile"
             android:label="@string/app_name"

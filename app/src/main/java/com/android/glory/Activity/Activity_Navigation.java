@@ -46,7 +46,7 @@ public class Activity_Navigation extends AppCompatActivity implements  Adapter_N
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
 
-     /*   SharedPreferences prefuserdata = getSharedPreferences("registeruser", 0);
+     /*   sharedPrefs prefuserdata = getSharedPreferences("registeruser", 0);
         registeruserid = prefuserdata.getString("registeruserid", "");
         registermobileno = prefuserdata.getString("registermobileno", "");
 

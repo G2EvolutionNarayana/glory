@@ -6,32 +6,43 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.glory.Activity.Activity_Balance;
+import com.android.glory.Activity.Activity_Change_Pwd;
 import com.android.glory.Activity.Activity_FantasyPointSystem;
 import com.android.glory.Activity.Activity_InfoSettings;
 import com.android.glory.Activity.Activity_Navigation;
-import com.android.glory.Activity.Activity_PointSystem;
 import com.android.glory.Activity.Activity_Profile;
 import com.android.glory.Activity.Activity_Rewards;
 import com.android.glory.Activity.Activity_Splash;
 import com.android.glory.Fragment.Fragment_Home;
-import com.android.glory.Utilites.CommanMethods;
+import com.android.glory.Utilites.EndUrls;
+import com.android.glory.Utilites.JSONParser;
+import com.android.glory.Utilites.sharedPrefs;
 import com.google.android.material.navigation.NavigationView;
+
+import org.apache.http.NameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -44,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     LinearLayout linearmore;
 
+    JSONParser jsonParser = new JSONParser();
+
+    String strregisteredtoken;
 
     TextView textwallet;
     @Override
@@ -58,6 +72,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
        // toolbar.setLogo(R.drawable.signupwithfb);
         String strtitle = "";
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#FFFFFF'>" + strtitle + "</font>"));
+
+        SharedPreferences prefuserdata3 = getSharedPreferences(sharedPrefs.Pref, 0);
+        strregisteredtoken = prefuserdata3.getString(sharedPrefs.Pref_token, "");
+
 
      /*   if (Build.VERSION.SDK_INT >= 11)
             toolbar.setBackgroundDrawable(getResources().getDrawable(
@@ -111,6 +129,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             Intent intent = new Intent(MainActivity.this, Activity_Profile.class);
             startActivity(intent);
+        }else if(id == R.id.nav_ChangePassword)
+        {
+            Intent intent = new Intent(MainActivity.this, Activity_Change_Pwd.class);
+            startActivity(intent);
         }else if(id == R.id.nav_balance)
         {
             Intent intent = new Intent(MainActivity.this, Activity_Balance.class);
@@ -127,6 +149,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             Intent intent = new Intent(MainActivity.this, Activity_FantasyPointSystem.class);
             startActivity(intent);
+        }
+        else if(id == R.id.logout)
+        {
+
+            logout();
+
+
         }
        /* else if(id == R.id.nav_password)
         {
@@ -178,26 +207,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
 
-                        //Getting out sharedpreferences
-                        SharedPreferences sharedPreferences = getSharedPreferences(CommanMethods.SHARED_PREF_NAME, Context.MODE_PRIVATE);
-                        //Getting editor
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-/*
+                        new LoadLogout().execute();
 
-                        //Puting the value false for loggedin
-                        editor.putBoolean(Config.LOGGEDIN_SHARED_PREF, false);
 
-                        //Putting blank value to email
-                        editor.putString(Config.EMAIL_SHARED_PREF, "");
-*/
-
-                        //Saving the sharedpreferences
-                        editor.commit();
-
-                        //Starting login activity
-                        Intent intent = new Intent(MainActivity.this, Activity_Splash.class);
-                        startActivity(intent);
-                        finish();
                     }
                 });
 
@@ -214,4 +226,135 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         alertDialog.show();
 
     }
+    public class LoadLogout extends AsyncTask<String, String, String>
+            //implements RemoveClickListner
+    {
+
+
+        String status;
+        String response;
+        String strresponse;
+        String strcode, strtype, strmessage;
+
+        private ProgressDialog pDialog;
+        Integer intcartcount = 0;
+        String validuser_id;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(MainActivity.this);
+            pDialog.setMessage("Please Wait ...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+            pDialog.show();
+
+
+        }
+
+        public String doInBackground(String... args) {
+
+            //  product_details_lists = new ArrayList<Product_list>();
+
+            // Retrieve JSON Objects from the given URL address
+            List<NameValuePair> userpramas = new ArrayList<NameValuePair>();
+
+            String paramsheader = "Bearer "+strregisteredtoken;
+
+
+          //  userpramas.add(new BasicNameValuePair(EndUrls.SignupOTP_URL_OTP, strotp));
+
+            Log.e("testing", "paramsheader = " + paramsheader);
+            Log.e("testing", "userpramas = " + userpramas);
+
+            String strurl = EndUrls.Logout_URL;
+            Log.e("testing", "strurl = " + strurl);
+            JSONObject json = jsonParser.makeHttpRequest(strurl, "POST", userpramas, paramsheader);
+
+            Log.e("testing", "json result = " + json);
+
+            if (json == null) {
+
+            } else {
+                Log.e("testing", "jon2222222222222");
+                try {
+
+
+                    status = json.getString("status");
+                    strresponse = json.getString("response");
+                    JSONObject  jsonobject = new JSONObject(strresponse);
+                    strcode = jsonobject.getString("code");
+                    strtype = jsonobject.getString("type");
+                    strmessage = jsonobject.getString("message");
+                 /*   if (status.equals("success")) {
+
+                        status = json.getString("status");
+                        strresponse = json.getString("response");
+                        String strcontent = json.getString("content");
+
+                        JSONObject  jsonobjectcontent = new JSONObject(strcontent);
+                        validuser_id = jsonobjectcontent.getString("user_id");
+                      *//*  String arrayresponse = json.getString("data");
+
+                        JSONObject  jsonobjectdata = new JSONObject(arrayresponse);
+                        Log.e("testing", "adapter value=" + arrayresponse);
+
+                        validuser_id = jsonobjectdata.getString("user_id");
+*//*
+
+                    }else{
+
+                    }*/
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+            return response;
+
+
+        }
+
+        @Override
+        protected void onPostExecute(String responce) {
+            super.onPostExecute(responce);
+
+
+            pDialog.dismiss();
+
+            if (status == null || status.trim().length() == 0 || status.equals("null")){
+
+            }else if (status.equals("success")) {
+
+
+
+                SharedPreferences sharedPreferences = getSharedPreferences(sharedPrefs.Pref, 0);
+                SharedPreferences.Editor edit = sharedPreferences.edit();
+                edit.clear();
+                edit.commit();
+
+                //Starting login activity
+                Intent intent =new Intent(MainActivity.this, Activity_Splash.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+
+
+            }
+            else {
+                Toast.makeText(MainActivity.this, strmessage, Toast.LENGTH_SHORT).show();
+
+
+            }
+
+
+
+        }
+
+
+
+    }
+
 }

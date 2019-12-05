@@ -28,6 +28,25 @@
                     android:layout_gravity="left"
                     android:src="@mipmap/ic_launcher_icon_round" />
             </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aboutus"
+                android:textColor="@color/theme"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/textdesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aboutus"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:padding="10dp"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

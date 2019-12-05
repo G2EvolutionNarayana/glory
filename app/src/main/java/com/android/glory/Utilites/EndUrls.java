@@ -19,4 +19,29 @@ public class EndUrls {
     //---------------------------------Signup OTP Resend--------------------------
     public static final String SignupOTPResend_URL = APIURL + "signup/resend_otp";
 
+    //---------------------------------Login--------------------------
+    public static final String Login_URL = APIURL + "signin/login";
+    public static final String Login_mobileno  = "mobile_no";
+    public static final String Login_Password  = "password";
+
+
+    //---------------------------------Logout--------------------------
+    public static final String Logout_URL = APIURL + "user/logout";
+
+
+    //---------------------------------ProfileDetails--------------------------
+    public static final String ProfileDetails_URL = APIURL + "user/profile";
+
+
+    //---------------------------------Aboutus--------------------------
+    public static final String Aboutus_URL = APIURL + "aboutus";
+
+
+    //---------------------------------Change Password--------------------------
+    public static final String ChangePassword_URL = APIURL + "user/password_update";
+    public static final String ChangePassword_OldPassword  = "old_password";
+    public static final String ChangePassword_NewPassword  = "password";
+
+
+
 }

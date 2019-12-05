@@ -9,6 +9,10 @@
             android:icon="@drawable/ic_action_profile"
             android:title="My Profile" />
 
+        <item android:id="@+id/nav_ChangePassword"
+            android:icon="@drawable/ic_action_changepwds"
+            android:title="Change Password" />
+
         <item android:id="@+id/nav_balance"
             android:icon="@drawable/wallet"
             android:title="My Balance" />
@@ -25,7 +29,9 @@
             android:icon="@drawable/oneicon"
             android:title="Point System" />
 
-
+        <item android:id="@+id/logout"
+            android:icon="@drawable/ic_action_logout"
+            android:title="Logout" />
     </group>
 
 

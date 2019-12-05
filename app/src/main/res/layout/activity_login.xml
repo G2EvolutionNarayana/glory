@@ -107,14 +107,14 @@
                 android:layout_marginEnd="25dp"
                 android:orientation="vertical">
 
-                <EditText
+                <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
                     android:id="@+id/logpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/bordergrey"
                     android:hint="Enter Password"
-                    android:inputType="text"
+                    android:inputType="textPassword"
                     android:padding="10dp"
                     android:paddingLeft="10sp"
                     android:singleLine="true"

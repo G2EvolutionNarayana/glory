@@ -11,6 +11,7 @@ import android.view.WindowManager;
 
 import com.android.glory.MainActivity;
 import com.android.glory.R;
+import com.android.glory.Utilites.sharedPrefs;
 
 public class Activity_Splash extends AppCompatActivity {
 
@@ -40,8 +41,8 @@ public class Activity_Splash extends AppCompatActivity {
 
 
 
-                    SharedPreferences prefuserdata = getSharedPreferences("registerUser", 0);
-                    String viewuseremail = prefuserdata.getString("userId", "");
+                    SharedPreferences prefuserdata = getSharedPreferences(sharedPrefs.Pref, 0);
+                    String viewuseremail = prefuserdata.getString(sharedPrefs.Pref_userId, "");
 
                     Log.e("userId","userid====splash"+viewuseremail);
 

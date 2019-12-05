@@ -37,14 +37,15 @@
                 android:layout_marginEnd="25dp"
                 android:orientation="horizontal">
 
-                <EditText
+                <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+                    android:id="@+id/editoldpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
                     android:background="@drawable/bordergrey"
                     android:drawableLeft="@drawable/ic_action_lock"
                     android:hint=" Old Password "
-                    android:inputType="text"
+                    android:inputType="textPassword"
                     android:padding="8dp"
                     android:singleLine="true"
                     android:textSize="13dp" />
@@ -58,7 +59,8 @@
                 android:layout_marginEnd="25dp"
                 android:orientation="horizontal">
 
-                <EditText
+                <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+                    android:id="@+id/editnewpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
@@ -79,7 +81,8 @@
                 android:layout_marginEnd="25dp"
                 android:orientation="horizontal">
 
-                <EditText
+                <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+                    android:id="@+id/editconfirmpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
@@ -100,6 +103,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="80dp"
                 android:orientation="horizontal">
+
 
                 <Button
                     android:id="@+id/logsubmit"
