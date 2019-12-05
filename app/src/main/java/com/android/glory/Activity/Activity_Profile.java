@@ -7,12 +7,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.glory.MainActivity;
 import com.android.glory.R;
+import com.android.glory.Retrofit.Aboutus.AboutusJson;
+import com.android.glory.Retrofit.Api;
+import com.android.glory.Retrofit.ApiClient;
+import com.android.glory.Retrofit.Profile.ProfileJson;
 import com.android.glory.Utilites.EndUrls;
 import com.android.glory.Utilites.JSONParser;
 import com.android.glory.Utilites.sharedPrefs;
@@ -23,6 +28,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Activity_Profile extends AppCompatActivity {
 
@@ -46,7 +55,9 @@ public class Activity_Profile extends AppCompatActivity {
         editmobileno = (EditText) findViewById(R.id.editmobileno);
         editdob = (EditText) findViewById(R.id.editdob);
 
-        new LoadProfile().execute();
+        RetrofitProfile();
+
+       // new LoadProfile().execute();
 
 
 
@@ -179,6 +190,86 @@ public class Activity_Profile extends AppCompatActivity {
 
 
     }
+    private void RetrofitProfile() {
 
+        Log.e("testing","strregisteredtoken = "+strregisteredtoken);
+
+        final ProgressDialog pProgressDialog;
+        pProgressDialog = new ProgressDialog(Activity_Profile.this);
+        pProgressDialog.setMessage("Please Wait ...");
+        pProgressDialog.setIndeterminate(false);
+        pProgressDialog.setCancelable(false);
+        pProgressDialog.show();
+
+        //call retrofit
+        //making api call
+        Api api = ApiClient.getClient().create(Api.class);
+        Call<ProfileJson> login = api.profilejson("Bearer "+strregisteredtoken);
+
+        login.enqueue(new Callback<ProfileJson>() {
+            @Override
+            public void onResponse(Call<ProfileJson> call, Response<ProfileJson> response) {
+                pProgressDialog.dismiss();
+                Log.e("testing","status = "+response.body().getStatus());
+                Log.e("testing","response = "+response.body().getResponse().getType());
+
+                if (response.body().getStatus() == null || response.body().getStatus().length() == 0){
+
+                }else if (response.body().getStatus().equals("success")) {
+                    if (response.body().getResponse() == null ){
+
+                    }else if (response.body().getResponse().getType().equals("data_available")){
+
+                        editname.setText(response.body().getData().getFirstName());
+                        editdob.setText(response.body().getData().getDob());
+                        editmobileno.setText(response.body().getData().getMobileNo());
+                        editemail.setText(response.body().getData().getEmail());
+
+
+
+                    }else{
+                        Toast.makeText(Activity_Profile.this, response.body().getResponse().getType(), Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+
+
+                   /*
+
+                    Intent intent=new Intent(Activity_Event_Details.this,Activity_Event_Details.class);
+                    startActivity(intent);
+                    finish();
+
+*/
+
+
+
+
+                    //  Toast.makeText(Activity_Event_Details.this, message, Toast.LENGTH_SHORT).show();
+
+
+                } else  {
+                    Log.e("testing","error");
+                    Toast.makeText(Activity_Profile.this, response.body().getResponse().getType(), Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ProfileJson> call, Throwable t) {
+                Toast.makeText(Activity_Profile.this,t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                pProgressDialog.dismiss();
+
+            }
+        });
+
+
+
+
+
+    }
 
 }

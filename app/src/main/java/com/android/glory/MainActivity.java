@@ -27,11 +27,16 @@ import com.android.glory.Activity.Activity_Balance;
 import com.android.glory.Activity.Activity_Change_Pwd;
 import com.android.glory.Activity.Activity_FantasyPointSystem;
 import com.android.glory.Activity.Activity_InfoSettings;
+import com.android.glory.Activity.Activity_Login;
 import com.android.glory.Activity.Activity_Navigation;
 import com.android.glory.Activity.Activity_Profile;
 import com.android.glory.Activity.Activity_Rewards;
 import com.android.glory.Activity.Activity_Splash;
 import com.android.glory.Fragment.Fragment_Home;
+import com.android.glory.Retrofit.Api;
+import com.android.glory.Retrofit.ApiClient;
+import com.android.glory.Retrofit.Login.LoginJson;
+import com.android.glory.Retrofit.Logout.LogoutJson;
 import com.android.glory.Utilites.EndUrls;
 import com.android.glory.Utilites.JSONParser;
 import com.android.glory.Utilites.sharedPrefs;
@@ -43,6 +48,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -207,8 +216,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
 
-                        new LoadLogout().execute();
-
+                        //new LoadLogout().execute();
+                        RetrofitLogin();
 
                     }
                 });
@@ -356,5 +365,93 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+
+    private void RetrofitLogin() {
+
+        Log.e("testing","strregisteredtoken = "+strregisteredtoken);
+
+        final ProgressDialog pProgressDialog;
+        pProgressDialog = new ProgressDialog(MainActivity.this);
+        pProgressDialog.setMessage("Please Wait ...");
+        pProgressDialog.setIndeterminate(false);
+        pProgressDialog.setCancelable(false);
+        pProgressDialog.show();
+
+        //call retrofit
+        //making api call
+        Api api = ApiClient.getClient().create(Api.class);
+        Call<LogoutJson> login = api.logoutjson("Bearer "+strregisteredtoken);
+
+        login.enqueue(new Callback<LogoutJson>() {
+            @Override
+            public void onResponse(Call<LogoutJson> call, Response<LogoutJson> response) {
+                pProgressDialog.dismiss();
+                Log.e("testing","status = "+response.body().getStatus());
+                Log.e("testing","response = "+response.body().getResponse().getType());
+
+                if (response.body().getStatus() == null || response.body().getStatus().length() == 0){
+
+                }else if (response.body().getStatus().equals("success")) {
+                    if (response.body().getResponse() == null ){
+
+                    }else if (response.body().getResponse().getType().equals("logout_success")){
+
+
+                        SharedPreferences sharedPreferences = getSharedPreferences(sharedPrefs.Pref, 0);
+                        SharedPreferences.Editor edit = sharedPreferences.edit();
+                        edit.clear();
+                        edit.commit();
+
+                        //Starting login activity
+                        Intent intent =new Intent(MainActivity.this, Activity_Splash.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+
+                    }else{
+                        Toast.makeText(MainActivity.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+
+
+                   /*
+
+                    Intent intent=new Intent(Activity_Event_Details.this,Activity_Event_Details.class);
+                    startActivity(intent);
+                    finish();
+
+*/
+
+
+
+
+                    //  Toast.makeText(Activity_Event_Details.this, message, Toast.LENGTH_SHORT).show();
+
+
+                } else  {
+                    Log.e("testing","error");
+                    Toast.makeText(MainActivity.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<LogoutJson> call, Throwable t) {
+                Toast.makeText(MainActivity.this,t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                pProgressDialog.dismiss();
+
+            }
+        });
+
+
+
+
+
+    }
+
 
 }

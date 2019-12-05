@@ -43,7 +43,7 @@
                 android:id="@+id/textdesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Aboutus"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:padding="10dp"/>

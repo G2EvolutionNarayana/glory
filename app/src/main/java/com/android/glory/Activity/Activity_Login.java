@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.android.glory.MainActivity;
 import com.android.glory.R;
+import com.android.glory.Retrofit.Api;
+import com.android.glory.Retrofit.ApiClient;
+import com.android.glory.Retrofit.Login.LoginJson;
 import com.android.glory.Utilites.EndUrls;
 import com.android.glory.Utilites.JSONParserNew;
 import com.android.glory.Utilites.sharedPrefs;
@@ -26,6 +29,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Activity_Login extends AppCompatActivity {
 
@@ -62,7 +69,9 @@ public class Activity_Login extends AppCompatActivity {
                 }else if(strpassword==null || strpassword.equals("null") || strpassword.length()==0){
                     logpassword.setError("Please Enter Valid Password");
                 }else{
-                    new LoadLogin().execute();
+
+                    RetrofitLogin(strmobileno, strpassword);
+                  //  new LoadLogin().execute();
 
                 }
 
@@ -223,5 +232,86 @@ public class Activity_Login extends AppCompatActivity {
 
 
 
+    private void RetrofitLogin(final String mobileno, String password) {
+        final ProgressDialog pProgressDialog;
+        pProgressDialog = new ProgressDialog(Activity_Login.this);
+        pProgressDialog.setMessage("Please Wait ...");
+        pProgressDialog.setIndeterminate(false);
+        pProgressDialog.setCancelable(false);
+        pProgressDialog.show();
 
+        //call retrofit
+        //making api call
+        Api api = ApiClient.getClient().create(Api.class);
+        Call<LoginJson> login = api.loginjson(mobileno,password);
+
+        login.enqueue(new Callback<LoginJson>() {
+            @Override
+            public void onResponse(Call<LoginJson> call, Response<LoginJson> response) {
+                 pProgressDialog.dismiss();
+                Log.e("testing","status = "+response.body().getStatus());
+                Log.e("testing","response = "+response.body().getResponse().getType());
+
+                if (response.body().getStatus() == null || response.body().getStatus().length() == 0){
+
+                }else if (response.body().getStatus().equals("success")) {
+                    if (response.body().getResponse() == null ){
+
+                    }else if (response.body().getResponse().getType().equals("login_success")){
+
+
+                        Intent intent =new Intent(Activity_Login.this, MainActivity.class);
+                        SharedPreferences prefuserdata =  Activity_Login.this.getSharedPreferences(sharedPrefs.Pref, 0);
+                        SharedPreferences.Editor prefeditor =prefuserdata.edit();
+                        prefeditor.putString(sharedPrefs.Pref_token,""+response.body().getResponse().getToken());
+                        prefeditor.putString(sharedPrefs.Pref_userId,""+response.body().getData().getId());
+
+                        prefeditor.commit();
+                        startActivity(intent);
+                        finish();
+
+                    }else{
+                        Toast.makeText(Activity_Login.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+
+
+                   /*
+
+                    Intent intent=new Intent(Activity_Event_Details.this,Activity_Event_Details.class);
+                    startActivity(intent);
+                    finish();
+
+*/
+
+
+
+
+                    //  Toast.makeText(Activity_Event_Details.this, message, Toast.LENGTH_SHORT).show();
+
+
+                } else  {
+                    Log.e("testing","error");
+                    Toast.makeText(Activity_Login.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<LoginJson> call, Throwable t) {
+                Toast.makeText(Activity_Login.this,t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                  pProgressDialog.dismiss();
+
+            }
+        });
+
+
+
+
+
+    }
 }

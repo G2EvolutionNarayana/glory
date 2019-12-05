@@ -15,6 +15,10 @@ import android.widget.Toast;
 
 import com.android.glory.MainActivity;
 import com.android.glory.R;
+import com.android.glory.Retrofit.Api;
+import com.android.glory.Retrofit.ApiClient;
+import com.android.glory.Retrofit.ChangePassword.ChangePasswordJson;
+import com.android.glory.Retrofit.Login.LoginJson;
 import com.android.glory.Utilites.EndUrls;
 import com.android.glory.Utilites.JSONParser;
 import com.android.glory.Utilites.sharedPrefs;
@@ -26,6 +30,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Activity_Change_Pwd extends AppCompatActivity {
 
@@ -79,7 +87,8 @@ public class Activity_Change_Pwd extends AppCompatActivity {
             if (strnewpassword.trim().equals(strconfirmpassword.trim())){
 
                 Log.e("testing","success");
-                new LoadChangePassword().execute();
+                RetrofitChangePassword(stroldpassword, strnewpassword);
+               // new LoadChangePassword().execute();
             }else{
 
                 Toast.makeText(Activity_Change_Pwd.this, "Password Mismatch", Toast.LENGTH_SHORT).show();
@@ -213,6 +222,82 @@ public class Activity_Change_Pwd extends AppCompatActivity {
     }
 
 
+    private void RetrofitChangePassword(final String oldpassword, String newpassword) {
+        final ProgressDialog pProgressDialog;
+        pProgressDialog = new ProgressDialog(Activity_Change_Pwd.this);
+        pProgressDialog.setMessage("Please Wait ...");
+        pProgressDialog.setIndeterminate(false);
+        pProgressDialog.setCancelable(false);
+        pProgressDialog.show();
 
+        //call retrofit
+        //making api call
+        Api api = ApiClient.getClient().create(Api.class);
+        Call<ChangePasswordJson> login = api.changepasswordjson(oldpassword,newpassword,"Bearer "+strregisteredtoken);
+
+        login.enqueue(new Callback<ChangePasswordJson>() {
+            @Override
+            public void onResponse(Call<ChangePasswordJson> call, Response<ChangePasswordJson> response) {
+                pProgressDialog.dismiss();
+                Log.e("testing","status = "+response.body().getStatus());
+                Log.e("testing","response = "+response.body().getResponse().getType());
+
+                if (response.body().getStatus() == null || response.body().getStatus().length() == 0){
+
+                }else if (response.body().getStatus().equals("success")) {
+                    if (response.body().getResponse() == null ){
+
+                    }else if (response.body().getResponse().getType().equals("password_update_success")){
+
+
+                        Intent intent = new Intent(Activity_Change_Pwd.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+
+
+                    }else{
+                        Toast.makeText(Activity_Change_Pwd.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+
+
+                   /*
+
+                    Intent intent=new Intent(Activity_Event_Details.this,Activity_Event_Details.class);
+                    startActivity(intent);
+                    finish();
+
+*/
+
+
+
+
+                    //  Toast.makeText(Activity_Event_Details.this, message, Toast.LENGTH_SHORT).show();
+
+
+                } else  {
+                    Log.e("testing","error");
+                    Toast.makeText(Activity_Change_Pwd.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ChangePasswordJson> call, Throwable t) {
+                Toast.makeText(Activity_Change_Pwd.this,t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                pProgressDialog.dismiss();
+
+            }
+        });
+
+
+
+
+
+    }
 
 }

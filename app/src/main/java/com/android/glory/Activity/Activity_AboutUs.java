@@ -11,7 +11,12 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.glory.MainActivity;
 import com.android.glory.R;
+import com.android.glory.Retrofit.Aboutus.AboutusJson;
+import com.android.glory.Retrofit.Api;
+import com.android.glory.Retrofit.ApiClient;
+import com.android.glory.Retrofit.Logout.LogoutJson;
 import com.android.glory.Utilites.EndUrls;
 import com.android.glory.Utilites.JSONParser;
 import com.android.glory.Utilites.sharedPrefs;
@@ -22,6 +27,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Activity_AboutUs extends AppCompatActivity {
 
@@ -41,7 +50,9 @@ public class Activity_AboutUs extends AppCompatActivity {
 
         textdesc = (TextView) findViewById(R.id.textdesc);
 
-        new LoadAboutus().execute();
+        // new LoadAboutus().execute();
+
+        RetrofitAboutus();
 
     }
 
@@ -163,5 +174,83 @@ public class Activity_AboutUs extends AppCompatActivity {
 
     }
 
+
+    private void RetrofitAboutus() {
+
+        Log.e("testing","strregisteredtoken = "+strregisteredtoken);
+
+        final ProgressDialog pProgressDialog;
+        pProgressDialog = new ProgressDialog(Activity_AboutUs.this);
+        pProgressDialog.setMessage("Please Wait ...");
+        pProgressDialog.setIndeterminate(false);
+        pProgressDialog.setCancelable(false);
+        pProgressDialog.show();
+
+        //call retrofit
+        //making api call
+        Api api = ApiClient.getClient().create(Api.class);
+        Call<AboutusJson> login = api.aboutusjson("Bearer "+strregisteredtoken);
+
+        login.enqueue(new Callback<AboutusJson>() {
+            @Override
+            public void onResponse(Call<AboutusJson> call, Response<AboutusJson> response) {
+                pProgressDialog.dismiss();
+                Log.e("testing","status = "+response.body().getStatus());
+                Log.e("testing","response = "+response.body().getResponse().getType());
+                Log.e("testing","response = "+response.body().getData().getPageContent());
+
+                if (response.body().getStatus() == null || response.body().getStatus().length() == 0){
+
+                }else if (response.body().getStatus().equals("success")) {
+                    if (response.body().getResponse() == null ){
+
+                    }else if (response.body().getResponse().getType().equals("about_us_success")){
+
+                        textdesc.setText(Html.fromHtml(response.body().getData().getPageContent()));
+
+                    }else{
+                        Toast.makeText(Activity_AboutUs.this, response.body().getResponse().getType(), Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+
+
+                   /*
+
+                    Intent intent=new Intent(Activity_Event_Details.this,Activity_Event_Details.class);
+                    startActivity(intent);
+                    finish();
+
+*/
+
+
+
+
+                    //  Toast.makeText(Activity_Event_Details.this, message, Toast.LENGTH_SHORT).show();
+
+
+                } else  {
+                    Log.e("testing","error");
+                    Toast.makeText(Activity_AboutUs.this, response.body().getResponse().getType(), Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<AboutusJson> call, Throwable t) {
+                Toast.makeText(Activity_AboutUs.this,t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                pProgressDialog.dismiss();
+
+            }
+        });
+
+
+
+
+
+    }
 
 }
