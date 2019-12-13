@@ -17,7 +17,7 @@ import com.android.glory.R;
 
 import java.util.ArrayList;
 
-public class Fragment_Cricket extends Fragment implements Adapter_Cricket.OnItemClickcourses{
+public class Fragment_MyMatchesUpcoming extends Fragment implements Adapter_Cricket.OnItemClickcourses{
 
     RecyclerView recyclercricket;
     String [] strtitle = new String[]{"MARSH CUP MATCH 15", "MARSH CUP MATCH 15","MARSH CUP MATCH 15","MARSH CUP MATCH 15","MARSH CUP MATCH 15"};
@@ -35,7 +35,7 @@ public class Fragment_Cricket extends Fragment implements Adapter_Cricket.OnItem
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View rootView = inflater.inflate(R.layout.fragment_cricket, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_mymatchesupcoming, container, false);
         recyclercricket = (RecyclerView) rootView.findViewById(R.id.recyclerview);
         recyclercricket.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager2 = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);

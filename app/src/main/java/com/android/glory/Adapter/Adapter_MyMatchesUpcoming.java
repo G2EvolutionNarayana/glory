@@ -15,19 +15,19 @@ import com.android.glory.R;
 
 import java.util.List;
 
-public class Adapter_Cricket extends RecyclerView.Adapter<Adapter_Cricket.FilterViewHolder>{
+public class Adapter_MyMatchesUpcoming extends RecyclerView.Adapter<Adapter_MyMatchesUpcoming.FilterViewHolder>{
 
     private Context mCtx;
     //we are storing all the products in a list
     private List<Entity_Cricket> courses_offered_list;
-    private Adapter_Cricket.OnItemClickcourses mCallback1;
+    private Adapter_MyMatchesUpcoming.OnItemClickcourses mCallback1;
     String qty;
     String sub_category_id;
 
 
 
     //getting the context and product list with constructor
-    public Adapter_Cricket(Context mCtx, List<Entity_Cricket> courses_offered_list, Adapter_Cricket.OnItemClickcourses mCallback1) {
+    public Adapter_MyMatchesUpcoming(Context mCtx, List<Entity_Cricket> courses_offered_list, Adapter_MyMatchesUpcoming.OnItemClickcourses mCallback1) {
         this.mCtx = mCtx;
         this.courses_offered_list = courses_offered_list;
         this.mCallback1 = mCallback1;
@@ -37,14 +37,14 @@ public class Adapter_Cricket extends RecyclerView.Adapter<Adapter_Cricket.Filter
         void OnItemClickcourses(int pos, String qty, String sub_category_id, int status);
     }
     @Override
-    public Adapter_Cricket.FilterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public Adapter_MyMatchesUpcoming.FilterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.item_cricket, parent, false);
-        return new Adapter_Cricket.FilterViewHolder(view);
+        return new Adapter_MyMatchesUpcoming.FilterViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(Adapter_Cricket.FilterViewHolder holder, final int position) {
+    public void onBindViewHolder(Adapter_MyMatchesUpcoming.FilterViewHolder holder, final int position) {
 
         final Entity_Cricket follow = courses_offered_list.get(position);
 

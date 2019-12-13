@@ -1,4 +1,4 @@
-package com.android.glory.Retrofit.Profile;
+package com.android.glory.Retrofit.TermsandConditions;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -11,9 +11,6 @@ public class Response {
     @SerializedName("type")
     @Expose
     private String type;
-    @SerializedName("message")
-    @Expose
-    private String message;
 
     public String getCode() {
         return code;
@@ -29,14 +26,6 @@ public class Response {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
 }

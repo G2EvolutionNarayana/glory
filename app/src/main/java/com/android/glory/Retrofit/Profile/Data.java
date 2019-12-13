@@ -1,5 +1,4 @@
 package com.android.glory.Retrofit.Profile;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -8,9 +7,9 @@ public class Data {
     @SerializedName("id")
     @Expose
     private Integer id;
-    @SerializedName("first_name")
+    @SerializedName("role_id")
     @Expose
-    private String firstName;
+    private String roleId;
     @SerializedName("address")
     @Expose
     private String address;
@@ -35,6 +34,12 @@ public class Data {
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("username")
+    @Expose
+    private String username;
+    @SerializedName("status")
+    @Expose
+    private String status;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -44,6 +49,9 @@ public class Data {
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
+    @SerializedName("remember_token")
+    @Expose
+    private Object rememberToken;
     @SerializedName("reset_pwd_hash")
     @Expose
     private Object resetPwdHash;
@@ -56,6 +64,9 @@ public class Data {
     @SerializedName("user_otp")
     @Expose
     private String userOtp;
+    @SerializedName("active")
+    @Expose
+    private String active;
 
     public Integer getId() {
         return id;
@@ -65,12 +76,12 @@ public class Data {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getRoleId() {
+        return roleId;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 
     public String getAddress() {
@@ -137,6 +148,22 @@ public class Data {
         this.email = email;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getCreatedAt() {
         return createdAt;
     }
@@ -159,6 +186,14 @@ public class Data {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Object getRememberToken() {
+        return rememberToken;
+    }
+
+    public void setRememberToken(Object rememberToken) {
+        this.rememberToken = rememberToken;
     }
 
     public Object getResetPwdHash() {
@@ -191,6 +226,14 @@ public class Data {
 
     public void setUserOtp(String userOtp) {
         this.userOtp = userOtp;
+    }
+
+    public String getActive() {
+        return active;
+    }
+
+    public void setActive(String active) {
+        this.active = active;
     }
 
 }

@@ -33,6 +33,8 @@ import com.android.glory.Activity.Activity_Profile;
 import com.android.glory.Activity.Activity_Rewards;
 import com.android.glory.Activity.Activity_Splash;
 import com.android.glory.Fragment.Fragment_Home;
+import com.android.glory.Fragment.Fragment_MyMatches;
+import com.android.glory.Fragment.Fragment_MyMatchesUpcoming;
 import com.android.glory.Retrofit.Api;
 import com.android.glory.Retrofit.ApiClient;
 import com.android.glory.Retrofit.Login.LoginJson;
@@ -62,13 +64,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawer;
     NavigationView navigationView;
 
-    LinearLayout linearmore;
+    LinearLayout linearhome, linearmatches, linearmore;
 
     JSONParser jsonParser = new JSONParser();
 
     String strregisteredtoken;
 
     TextView textwallet;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,14 +111,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         textwallet = (TextView) findViewById(R.id.textwallet);
 
-
+        linearhome = (LinearLayout) findViewById(R.id.linearhome);
+        linearmatches = (LinearLayout) findViewById(R.id.linearmatches);
         linearmore = (LinearLayout) findViewById(R.id.linearmore);
+
         Fragment_Home fragment2 = new Fragment_Home();
         FragmentTransaction fragmentTransaction2 =
                 getSupportFragmentManager().beginTransaction();
         fragmentTransaction2.replace(R.id.fragment_container, fragment2);
         fragmentTransaction2.commit();
 
+        linearhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        linearmatches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment_MyMatches fragment1 = new Fragment_MyMatches();
+                FragmentTransaction fragmentTransaction3 =
+                        getSupportFragmentManager().beginTransaction();
+                fragmentTransaction3.replace(R.id.fragment_container, fragment1);
+                fragmentTransaction3.commit();
+            }
+        });
         linearmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

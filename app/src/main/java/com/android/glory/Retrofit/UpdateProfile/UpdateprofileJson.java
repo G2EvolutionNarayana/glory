@@ -1,9 +1,9 @@
-package com.android.glory.Retrofit.Profile;
+package com.android.glory.Retrofit.UpdateProfile;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ProfileJson {
+public class UpdateprofileJson {
 
     @SerializedName("status")
     @Expose
@@ -11,9 +11,6 @@ public class ProfileJson {
     @SerializedName("response")
     @Expose
     private Response response;
-    @SerializedName("data")
-    @Expose
-    private Data data;
 
     public String getStatus() {
         return status;
@@ -29,14 +26,6 @@ public class ProfileJson {
 
     public void setResponse(Response response) {
         this.response = response;
-    }
-
-    public Data getData() {
-        return data;
-    }
-
-    public void setData(Data data) {
-        this.data = data;
     }
 
 }

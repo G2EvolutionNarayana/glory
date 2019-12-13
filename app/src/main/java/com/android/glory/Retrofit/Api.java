@@ -9,6 +9,8 @@ import com.android.glory.Retrofit.ChangePassword.ChangePasswordJson;
 import com.android.glory.Retrofit.Login.LoginJson;
 import com.android.glory.Retrofit.Logout.LogoutJson;
 import com.android.glory.Retrofit.Profile.ProfileJson;
+import com.android.glory.Retrofit.TermsandConditions.TermsandconditionsJson;
+import com.android.glory.Retrofit.UpdateProfile.UpdateprofileJson;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -33,11 +35,19 @@ public interface Api {
     @GET("aboutus")
     Call<AboutusJson> aboutusjson(@Header("Authorization") String auth);
 
+
+    @GET("aboutus")
+    Call<TermsandconditionsJson> termsandconditionsjson(@Header("Authorization") String auth);
+
     @POST("user/profile")
     Call<ProfileJson> profilejson(@Header("Authorization") String auth);
 
     @POST("user/password_update")
     @FormUrlEncoded
     Call<ChangePasswordJson> changepasswordjson(@Field("old_password") String old_password, @Field("password") String password, @Header("Authorization") String auth);
+
+    @POST("user/profile_update")
+    @FormUrlEncoded
+    Call<UpdateprofileJson> profilupdatejson(@Field("username") String username, @Field("email") String email, @Field("dob") String dob, @Field("gender") String gender, @Field("address") String address, @Field("country") String country, @Field("state") String state, @Field("city") String city, @Header("Authorization") String auth);
 
 }

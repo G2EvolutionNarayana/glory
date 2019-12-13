@@ -43,5 +43,12 @@ public class EndUrls {
     public static final String ChangePassword_NewPassword  = "password";
 
 
+/*
+    //---------------------------------Profile Update--------------------------rrr
+    public static final String ProfileUpdate_URL = APIURL + "user/password_update";
+    public static final String ProfileUpdate_username  = "username";
+    public static final String ProfileUpdate_  = "password";
+    public static final String ProfileUpdate_  = "password";
+    public static final String ProfileUpdate_  = "password";*/
 
 }

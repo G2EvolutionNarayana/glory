@@ -1,9 +1,9 @@
-package com.android.glory.Retrofit.Profile;
+package com.android.glory.Retrofit.TermsandConditions;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ProfileJson {
+public class TermsandconditionsJson {
 
     @SerializedName("status")
     @Expose

@@ -543,4 +543,6 @@ public class Activity_TC extends AppCompatActivity {
         textdesc2.setText(strdesc2);
 
     }
+
+
 }

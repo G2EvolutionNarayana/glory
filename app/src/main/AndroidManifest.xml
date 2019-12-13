@@ -17,6 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_icon_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activity.Activity_Contest"></activity>
+        <activity android:name=".Activity.Activity_PowerHitter" />
+        <activity android:name=".Activity.Activity_SelectPlayer" />
+        <activity android:name=".Activity.Activity_CricketList" />
         <activity android:name=".Activity_Testing2" />
 
         <uses-library
