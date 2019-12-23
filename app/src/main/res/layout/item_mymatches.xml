@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/texttitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MARSH CUP MATCH 15"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:padding="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:layout_centerVertical="true">
+
+                    <LinearLayout
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="#1E3E8C"
+                        android:layout_centerVertical="true"/>
+                    <ImageView
+                        android:id="@+id/img1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/icon1"
+                        android:layout_marginLeft="10dp"/>
+
+                    <TextView
+                        android:id="@+id/textname1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="NSW"
+                        android:textColor="#1E3E8C"
+                        android:textStyle="bold"
+                        android:layout_toRightOf="@+id/img1"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="16dp"/>
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/theme"
+                    android:layout_centerHorizontal="true"
+                    android:padding="10dp"
+                    android:src="@drawable/vs2"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true">
+
+                    <LinearLayout
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="#1E3E8C"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+                    <ImageView
+                        android:id="@+id/img2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/icon1"
+                        android:layout_marginRight="10dp"
+                        android:layout_alignParentRight="true"/>
+                    <TextView
+                        android:id="@+id/textname2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="NSW"
+                        android:textColor="#1E3E8C"
+                        android:textStyle="bold"
+                        android:layout_toLeftOf="@+id/img2"
+                        android:gravity="center_vertical"
+                        android:layout_marginRight="5dp"
+                        android:textSize="16dp"/>
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/texttime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5h 42m left"
+                android:textColor="@color/theme"
+                android:gravity="center"
+                android:padding="10dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

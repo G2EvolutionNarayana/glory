@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.glory.Activity.Activity_CricketList;
-import com.android.glory.Adapter.Adapter_Cricket;
-import com.android.glory.Pojo.Entity_Cricket;
+import com.android.glory.Adapter.Adapter_MyMatches;
+import com.android.glory.Pojo.Entity_MyMatches;
 import com.android.glory.R;
 
 import java.util.ArrayList;
 
-public class Fragment_MyMatchesUpcoming extends Fragment implements Adapter_Cricket.OnItemClickcourses{
+public class Fragment_MyMatchesUpcoming extends Fragment implements Adapter_MyMatches.OnItemClickcourses{
 
     RecyclerView recyclercricket;
     String [] strtitle = new String[]{"MARSH CUP MATCH 15", "MARSH CUP MATCH 15","MARSH CUP MATCH 15","MARSH CUP MATCH 15","MARSH CUP MATCH 15"};
@@ -25,10 +25,10 @@ public class Fragment_MyMatchesUpcoming extends Fragment implements Adapter_Cric
     String [] strtitle2 = new String[]{"TAS", "QUN","PAK","CHA","PSW"};
     Integer []courseImage1 = new Integer[]{R.drawable.icon1,R.drawable.icon1, R.drawable.icon1, R.drawable.icon1,R.drawable.icon1};
     Integer []courseImage2 = new Integer[]{R.drawable.icon1,R.drawable.icon1, R.drawable.icon1, R.drawable.icon1,R.drawable.icon1};
-    Adapter_Cricket cricket_Adapter;
-    Adapter_Cricket.OnItemClickcourses mCallback2;
+    Adapter_MyMatches cricket_Adapter;
+    Adapter_MyMatches.OnItemClickcourses mCallback2;
 
-    private ArrayList<Entity_Cricket> allItemscricket = new ArrayList<Entity_Cricket>();
+    private ArrayList<Entity_MyMatches> allItemscricket = new ArrayList<Entity_MyMatches>();
 
 
     @Override
@@ -47,14 +47,14 @@ public class Fragment_MyMatchesUpcoming extends Fragment implements Adapter_Cric
         return rootView;
     }
     private void setUpRecyler2() {
-        allItemscricket =new ArrayList<Entity_Cricket>();
+        allItemscricket =new ArrayList<Entity_MyMatches>();
 
         for(int i=0;i<strtitle.length;i++){
-            Entity_Cricket feedInfo = new Entity_Cricket();
+            Entity_MyMatches feedInfo = new Entity_MyMatches();
             feedInfo.setProductName(strtitle[i]);
             allItemscricket.add(feedInfo);
         }
-        cricket_Adapter = new Adapter_Cricket(getActivity(),allItemscricket, mCallback2);
+        cricket_Adapter = new Adapter_MyMatches(getActivity(),allItemscricket, mCallback2);
         recyclercricket.setAdapter(cricket_Adapter);
     }
 

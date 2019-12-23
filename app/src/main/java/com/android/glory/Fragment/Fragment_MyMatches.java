@@ -42,9 +42,9 @@ public class Fragment_MyMatches extends Fragment {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-       /* adapter.addFragment(new Fragment_MyMatchesUpcoming(), "Upcoming");
+        adapter.addFragment(new Fragment_MyMatchesUpcoming(), "Upcoming");
         adapter.addFragment(new Fragment_MyMatchesUpcoming(), "Live");
-        adapter.addFragment(new Fragment_MyMatchesUpcoming(), "Completed");*/
+        adapter.addFragment(new Fragment_MyMatchesUpcoming(), "Completed");
        // adapter.addFragment(new Fragment_Tab1(), "Kabadi");
        // adapter.addFragment(new Fragment_Tab1(), "Football");
 
