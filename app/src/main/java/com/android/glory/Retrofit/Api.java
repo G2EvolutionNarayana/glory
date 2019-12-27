@@ -6,6 +6,7 @@ package com.android.glory.Retrofit;
 
 import com.android.glory.Retrofit.Aboutus.AboutusJson;
 import com.android.glory.Retrofit.ChangePassword.ChangePasswordJson;
+import com.android.glory.Retrofit.FAQs.FaqsJson;
 import com.android.glory.Retrofit.Login.LoginJson;
 import com.android.glory.Retrofit.Logout.LogoutJson;
 import com.android.glory.Retrofit.Profile.ProfileJson;
@@ -49,5 +50,9 @@ public interface Api {
     @POST("user/profile_update")
     @FormUrlEncoded
     Call<UpdateprofileJson> profilupdatejson(@Field("username") String username, @Field("email") String email, @Field("dob") String dob, @Field("gender") String gender, @Field("address") String address, @Field("country") String country, @Field("state") String state, @Field("city") String city, @Header("Authorization") String auth);
+
+    @POST("faq")
+    @FormUrlEncoded
+    Call<FaqsJson> faquploadjson(@Field("username") String username, @Header("Authorization") String auth);
 
 }

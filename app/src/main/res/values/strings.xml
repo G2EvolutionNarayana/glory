@@ -17,4 +17,7 @@
     <string name="Rs100">\u20B9 100</string>
     <string name="Rs200">\u20B9 200</string>
     <string name="Rs500">\u20B9 500</string>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+
 </resources>

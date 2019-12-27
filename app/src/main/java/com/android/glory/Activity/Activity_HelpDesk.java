@@ -3,9 +3,12 @@ package com.android.glory.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -15,6 +18,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.glory.R;
+import com.android.glory.Retrofit.Api;
+import com.android.glory.Retrofit.ApiClient;
+import com.android.glory.Retrofit.FAQs.FaqsJson;
+import com.android.glory.Retrofit.UpdateProfile.UpdateprofileJson;
+import com.android.glory.Utilites.sharedPrefs;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Activity_HelpDesk extends AppCompatActivity {
 
@@ -23,13 +35,14 @@ public class Activity_HelpDesk extends AppCompatActivity {
 
     String strfaqquestion;
     EditText editquestion;
-
+    String strregisteredtoken;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__help_desk);
 
-
+        SharedPreferences prefuserdata3 = getSharedPreferences(sharedPrefs.Pref, 0);
+        strregisteredtoken = prefuserdata3.getString(sharedPrefs.Pref_token, "");
 
         dialog = new Dialog(Activity_HelpDesk.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -100,6 +113,83 @@ public class Activity_HelpDesk extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+    private void RetrofitUpdateProfile(final String username, String email, String dod, String gender) {
+        final ProgressDialog pProgressDialog;
+        pProgressDialog = new ProgressDialog(Activity_HelpDesk.this);
+        pProgressDialog.setMessage("Please Wait ...");
+        pProgressDialog.setIndeterminate(false);
+        pProgressDialog.setCancelable(false);
+        pProgressDialog.show();
+
+        //call retrofit
+        //making api call
+        Api api = ApiClient.getClient().create(Api.class);
+        Call<FaqsJson> login = api.faquploadjson(strfaqquestion,"Bearer "+strregisteredtoken);
+
+        login.enqueue(new Callback<FaqsJson>() {
+            @Override
+            public void onResponse(Call<FaqsJson> call, Response<FaqsJson> response) {
+                pProgressDialog.dismiss();
+                Log.e("testing","status = "+response.body().getStatus());
+                Log.e("testing","response = "+response.body().getResponse().getType());
+
+                if (response.body().getStatus() == null || response.body().getStatus().length() == 0){
+
+                }else if (response.body().getStatus().equals("success")) {
+                    if (response.body().getResponse() == null ){
+
+                    }else if (response.body().getResponse().getType().equals("update_success")){
+
+                        Toast.makeText(Activity_HelpDesk.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                       /* Intent intent = new Intent(Activity_Profile.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();*/
+
+
+                    }else{
+                        Toast.makeText(Activity_HelpDesk.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+
+
+                   /*
+
+                    Intent intent=new Intent(Activity_Event_Details.this,Activity_Event_Details.class);
+                    startActivity(intent);
+                    finish();
+
+*/
+
+
+
+
+                    //  Toast.makeText(Activity_Event_Details.this, message, Toast.LENGTH_SHORT).show();
+
+
+                } else  {
+                    Log.e("testing","error");
+                    Toast.makeText(Activity_HelpDesk.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<FaqsJson> call, Throwable t) {
+                Toast.makeText(Activity_HelpDesk.this,t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                pProgressDialog.dismiss();
+
+            }
+        });
+
+
+
+
+
     }
 
 }
