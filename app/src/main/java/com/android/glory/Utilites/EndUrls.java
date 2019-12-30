@@ -51,4 +51,10 @@ public class EndUrls {
     public static final String ProfileUpdate_  = "password";
     public static final String ProfileUpdate_  = "password";*/
 
+
+    //---------------------------------CricketList--------------------------rrr
+    public static final String cricketlist_URL = APIURL + "cricketlist";
+
+
+
 }

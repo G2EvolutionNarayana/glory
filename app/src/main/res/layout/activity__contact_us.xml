@@ -38,6 +38,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/editname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
@@ -59,6 +60,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/editemailid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
@@ -80,6 +82,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/editnumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
@@ -101,6 +104,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/editmessage"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:layout_weight=".4"

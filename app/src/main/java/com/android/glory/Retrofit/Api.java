@@ -6,6 +6,8 @@ package com.android.glory.Retrofit;
 
 import com.android.glory.Retrofit.Aboutus.AboutusJson;
 import com.android.glory.Retrofit.ChangePassword.ChangePasswordJson;
+import com.android.glory.Retrofit.Contactus.contactusjson;
+import com.android.glory.Retrofit.CricketList.cricketlistjson;
 import com.android.glory.Retrofit.FAQs.FaqsJson;
 import com.android.glory.Retrofit.Login.LoginJson;
 import com.android.glory.Retrofit.Logout.LogoutJson;
@@ -53,6 +55,14 @@ public interface Api {
 
     @POST("faq")
     @FormUrlEncoded
-    Call<FaqsJson> faquploadjson(@Field("username") String username, @Header("Authorization") String auth);
+    Call<FaqsJson> faquploadjson(@Field("faq_question") String faqquestion, @Header("Authorization") String auth);
+
+    @POST("contactus")
+    @FormUrlEncoded
+    Call<contactusjson> contactusjson(@Field("name") String name, @Field("email") String email, @Field("telephone") String telephone, @Field("message") String message, @Header("Authorization") String auth);
+
+    @GET("cricketlist")
+    Call<cricketlistjson> cricketlistjson(@Header("Authorization") String auth);
+
 
 }

@@ -5,4 +5,8 @@ public class sharedPrefs {
     public static final String Pref_token = "token";
     public static final String Pref_userId = "userId";
 
+
+    //----------------------CricketList id---------------
+
+
 }

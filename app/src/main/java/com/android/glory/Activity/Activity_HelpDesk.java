@@ -92,7 +92,7 @@ public class Activity_HelpDesk extends AppCompatActivity {
 
                     Toast.makeText(Activity_HelpDesk.this, "Need to Integrate API", Toast.LENGTH_SHORT).show();
 
-
+                    RetrofitUploadFAQ(strfaqquestion);
                    /* ConnectionDetector cd = new ConnectionDetector(getActivity());
                     if (cd.isConnectingToInternet()) {
                         new WalletUser().execute();
@@ -114,7 +114,7 @@ public class Activity_HelpDesk extends AppCompatActivity {
         });
         dialog.show();
     }
-    private void RetrofitUpdateProfile(final String username, String email, String dod, String gender) {
+    private void RetrofitUploadFAQ(final String faq) {
         final ProgressDialog pProgressDialog;
         pProgressDialog = new ProgressDialog(Activity_HelpDesk.this);
         pProgressDialog.setMessage("Please Wait ...");
@@ -125,7 +125,7 @@ public class Activity_HelpDesk extends AppCompatActivity {
         //call retrofit
         //making api call
         Api api = ApiClient.getClient().create(Api.class);
-        Call<FaqsJson> login = api.faquploadjson(strfaqquestion,"Bearer "+strregisteredtoken);
+        Call<FaqsJson> login = api.faquploadjson(faq,"Bearer "+strregisteredtoken);
 
         login.enqueue(new Callback<FaqsJson>() {
             @Override
@@ -139,16 +139,16 @@ public class Activity_HelpDesk extends AppCompatActivity {
                 }else if (response.body().getStatus().equals("success")) {
                     if (response.body().getResponse() == null ){
 
-                    }else if (response.body().getResponse().getType().equals("update_success")){
-
-                        Toast.makeText(Activity_HelpDesk.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                    }else if (response.body().getResponse().getCode().equals("200")){
+                        dialog.dismiss();
+                        Toast.makeText(Activity_HelpDesk.this, "Uploaded Successfully", Toast.LENGTH_LONG).show();
                        /* Intent intent = new Intent(Activity_Profile.this, MainActivity.class);
                         startActivity(intent);
                         finish();*/
 
 
                     }else{
-                        Toast.makeText(Activity_HelpDesk.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Activity_HelpDesk.this, "Something went wrong", Toast.LENGTH_LONG).show();
                     }
 
 
@@ -171,7 +171,7 @@ public class Activity_HelpDesk extends AppCompatActivity {
 
                 } else  {
                     Log.e("testing","error");
-                    Toast.makeText(Activity_HelpDesk.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_HelpDesk.this, "Something went wrong", Toast.LENGTH_LONG).show();
                 }
 
 
@@ -180,7 +180,7 @@ public class Activity_HelpDesk extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<FaqsJson> call, Throwable t) {
-                Toast.makeText(Activity_HelpDesk.this,t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(Activity_HelpDesk.this,t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
                 pProgressDialog.dismiss();
 
             }
