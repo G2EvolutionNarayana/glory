@@ -10,13 +10,14 @@
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:background="@color/black">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/user"
-            android:padding="5dp"
-            />
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/xIvProfile"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:src="@drawable/user" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

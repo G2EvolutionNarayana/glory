@@ -9,16 +9,23 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.text.Html;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,27 +34,40 @@ import com.android.glory.Activity.Activity_Balance;
 import com.android.glory.Activity.Activity_Change_Pwd;
 import com.android.glory.Activity.Activity_FantasyPointSystem;
 import com.android.glory.Activity.Activity_InfoSettings;
-import com.android.glory.Activity.Activity_Login;
 import com.android.glory.Activity.Activity_Navigation;
 import com.android.glory.Activity.Activity_Profile;
 import com.android.glory.Activity.Activity_Rewards;
 import com.android.glory.Activity.Activity_Splash;
+import com.android.glory.Activity.VerifyPanCardActivity;
+import com.android.glory.Fragment.FragmentNotification;
 import com.android.glory.Fragment.Fragment_Home;
 import com.android.glory.Fragment.Fragment_MyMatches;
-import com.android.glory.Fragment.Fragment_MyMatchesUpcoming;
+import com.android.glory.Model.AboutUs.AboutExample;
+import com.android.glory.Model.Logout.LogoutExample;
+import com.android.glory.Model.PancardUpload.PancardExample;
 import com.android.glory.Retrofit.Api;
 import com.android.glory.Retrofit.ApiClient;
-import com.android.glory.Retrofit.Login.LoginJson;
 import com.android.glory.Retrofit.Logout.LogoutJson;
+import com.android.glory.Retrofit.UpdateProfile.UpdateprofileJson;
 import com.android.glory.Utilites.EndUrls;
 import com.android.glory.Utilites.JSONParser;
 import com.android.glory.Utilites.sharedPrefs;
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.DexterError;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.PermissionRequestErrorListener;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import org.apache.http.NameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,15 +82,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FragmentTransaction mFragmentTransaction;
     ActionBarDrawerToggle toggle;
     DrawerLayout drawer;
+    ImageView imageViewprofile;
     NavigationView navigationView;
+    private ProgressDialog dialog;
 
-    LinearLayout linearhome, linearmatches, linearmore;
+    LinearLayout linearhome, linearmatches, linearmore,linearnotifications;
 
     JSONParser jsonParser = new JSONParser();
 
     String strregisteredtoken;
 
-    TextView textwallet;
+    TextView textwallet,drawer_titleemail;
+    TextView drawer_title_name;
+    Boolean isPermissionGranted = false;
+    private int GALLERY = 1, CAMERA = 2;
+    Bitmap bitmap;
+    private ProgressDialog pDialog;
 
 
     @Override
@@ -96,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (Build.VERSION.SDK_INT >= 21)
             toolbar.setElevation(0);*/
 
-
+        drawer_title_name=(TextView)findViewById(R.id.drawer_title_name);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -110,9 +137,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mFragmentManager = getSupportFragmentManager();
 
         textwallet = (TextView) findViewById(R.id.textwallet);
+        imageViewprofile = (ImageView) findViewById(R.id.imageViewprofile);
+
+        drawer_titleemail = (TextView) findViewById(R.id.drawer_titleemail);
 
         linearhome = (LinearLayout) findViewById(R.id.linearhome);
         linearmatches = (LinearLayout) findViewById(R.id.linearmatches);
+        linearnotifications=(LinearLayout) findViewById(R.id.linearnotifications);
         linearmore = (LinearLayout) findViewById(R.id.linearmore);
 
         Fragment_Home fragment2 = new Fragment_Home();
@@ -139,6 +170,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentTransaction3.commit();
             }
         });
+        linearnotifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentNotification fragment1 = new FragmentNotification();
+                FragmentTransaction fragmentTransaction3 =
+                        getSupportFragmentManager().beginTransaction();
+                fragmentTransaction3.replace(R.id.fragment_container, fragment1);
+                fragmentTransaction3.commit();
+            }
+        });
         linearmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -146,6 +187,205 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
+
+        imageViewprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (requestMultiplePermissions()) {
+                    showPictureDialog();
+
+                }else {
+                }
+                
+            }
+        });
+
+
+        Activity_Profile();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if ((sharedPrefs.getPreferences(getApplicationContext(), sharedPrefs.Wallet_Amount)==null ||sharedPrefs.getPreferences(getApplicationContext(), sharedPrefs.Wallet_Amount).isEmpty())){
+            textwallet.setText("\u20B9"+"0");
+
+        }else {
+            textwallet.setText("\u20B9"+" "+sharedPrefs.getPreferences(getApplicationContext(), sharedPrefs.Wallet_Amount));
+            Log.e("testing", "status = " + sharedPrefs.getPreferences(getApplicationContext(), sharedPrefs.Wallet_Amount));
+
+        }
+    }
+
+    private void showPictureDialog() {
+        AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
+        pictureDialog.setTitle("Select Action");
+        String[] pictureDialogItems = {
+                "Select photo from gallery",
+                "Capture photo from camera"};
+        pictureDialog.setItems(pictureDialogItems,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                choosePhotoFromGallary();
+                                break;
+                            case 1:
+                                takePhotoFromCamera();
+                                break;
+                        }
+                    }
+                });
+        pictureDialog.show();
+    }
+
+    public void choosePhotoFromGallary() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(galleryIntent, GALLERY);
+    }
+
+    private void takePhotoFromCamera() {
+        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, CAMERA);
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == this.RESULT_CANCELED) {
+            return;
+        }
+        if (requestCode == GALLERY) {
+            if (data != null) {
+                Uri contentURI = data.getData();
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
+                    matchesList();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+//                    Toast.makeText(MainActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        } else if (requestCode == CAMERA) {
+            bitmap = (Bitmap) data.getExtras().get("data");
+            matchesList();
+        }
+    }
+
+    private String convertToString() {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        byte[] imgByte = byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(imgByte, Base64.DEFAULT);
+    }
+
+    private void matchesList() {
+
+        Log.e("testing", "strregisteredtoken = " + "matchesList");
+
+        pDialog = new ProgressDialog(MainActivity.this);
+        pDialog.setMessage("Please Wait ...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+        String image = convertToString();
+
+        Api api = ApiClient.getClient().create(Api.class);
+        String viewuseremail = sharedPrefs.getPreferences(getApplicationContext(), sharedPrefs.Pref_userId);
+        Call<UpdateprofileJson> login = api.UpdateImage(viewuseremail, image);
+
+//        Call<UpdateprofileJson> login = api.PancardImageUpload(image);
+        login.enqueue(new Callback<UpdateprofileJson>() {
+            @Override
+            public void onResponse(Call<UpdateprofileJson> call, Response<UpdateprofileJson> response) {
+                pDialog.dismiss();
+                Log.e("testing", "status = " + response.body());
+
+                //       Log.e("testing", "status = " + response.body().getStatus());
+                Log.e("testing", "response = " + response.body().getResponse().getMessage());
+                //  Log.e("testing","response = "+response.body().getData().getPageContent());
+                Log.e("testing", "response = " + response.body());
+                if (response.body().getStatus() == null || response.body().getStatus().length() == 0) {
+
+                } else if (response.body().getStatus().equals("success")) {
+
+                        if (response.body().getResponse() == null) {
+
+                        } else if (response.body().getResponse().getType().equals("update_success")) {
+                            Activity_Profile();
+                            dialog.dismiss();
+                            Toast.makeText(getApplicationContext(), response.body().getResponse().getType(), Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            Toast.makeText(getApplicationContext(), response.body().getResponse().getType(), Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+
+                        }
+
+                } else {
+                    Log.e("testing", "error");
+                    pDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UpdateprofileJson> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("testing", "response = " + t.getLocalizedMessage());
+
+                pDialog.dismiss();
+
+            }
+        });
+    }
+
+    private boolean requestMultiplePermissions() {
+        isPermissionGranted = false;
+        Dexter.withActivity(this)
+                .withPermissions(
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        // check if all permissions are granted
+
+                        if (report.areAllPermissionsGranted()) {
+
+                            isPermissionGranted = true;
+                            //  Toast.makeText(getApplicationContext(), "All permissions are granted by user!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            isPermissionGranted = true;
+
+                        }
+
+                        // check for permanent denial of any permission
+                        if (report.isAnyPermissionPermanentlyDenied()) {
+                            // show alert dialog navigating to Settings
+
+                        }
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                }).
+                withErrorListener(new PermissionRequestErrorListener() {
+                    @Override
+                    public void onError(DexterError error) {
+                        Toast.makeText(getApplicationContext(), "Some Error! ", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .onSameThread()
+                .check();
+        return isPermissionGranted;
     }
 
 
@@ -155,9 +395,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.home) {
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
+        if (id == R.id.nav_home) {
+            Fragment_Home fragment2 = new Fragment_Home();
+            FragmentTransaction fragmentTransaction2 =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction2.replace(R.id.fragment_container, fragment2);
+            fragmentTransaction2.commit();
+            Log.e("testing", "paramsheader = " + fragment2);
+
         }else if(id == R.id.nav_profile)
         {
             Intent intent = new Intent(MainActivity.this, Activity_Profile.class);
@@ -259,136 +504,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         alertDialog.show();
 
     }
-    public class LoadLogout extends AsyncTask<String, String, String>
-            //implements RemoveClickListner
-    {
 
-
-        String status;
-        String response;
-        String strresponse;
-        String strcode, strtype, strmessage;
-
-        private ProgressDialog pDialog;
-        Integer intcartcount = 0;
-        String validuser_id;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressDialog(MainActivity.this);
-            pDialog.setMessage("Please Wait ...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(false);
-            pDialog.show();
-
-
-        }
-
-        public String doInBackground(String... args) {
-
-            //  product_details_lists = new ArrayList<Product_list>();
-
-            // Retrieve JSON Objects from the given URL address
-            List<NameValuePair> userpramas = new ArrayList<NameValuePair>();
-
-            String paramsheader = "Bearer "+strregisteredtoken;
-
-
-          //  userpramas.add(new BasicNameValuePair(EndUrls.SignupOTP_URL_OTP, strotp));
-
-            Log.e("testing", "paramsheader = " + paramsheader);
-            Log.e("testing", "userpramas = " + userpramas);
-
-            String strurl = EndUrls.Logout_URL;
-            Log.e("testing", "strurl = " + strurl);
-            JSONObject json = jsonParser.makeHttpRequest(strurl, "POST", userpramas, paramsheader);
-
-            Log.e("testing", "json result = " + json);
-
-            if (json == null) {
-
-            } else {
-                Log.e("testing", "jon2222222222222");
-                try {
-
-
-                    status = json.getString("status");
-                    strresponse = json.getString("response");
-                    JSONObject  jsonobject = new JSONObject(strresponse);
-                    strcode = jsonobject.getString("code");
-                    strtype = jsonobject.getString("type");
-                    strmessage = jsonobject.getString("message");
-                 /*   if (status.equals("success")) {
-
-                        status = json.getString("status");
-                        strresponse = json.getString("response");
-                        String strcontent = json.getString("content");
-
-                        JSONObject  jsonobjectcontent = new JSONObject(strcontent);
-                        validuser_id = jsonobjectcontent.getString("user_id");
-                      *//*  String arrayresponse = json.getString("data");
-
-                        JSONObject  jsonobjectdata = new JSONObject(arrayresponse);
-                        Log.e("testing", "adapter value=" + arrayresponse);
-
-                        validuser_id = jsonobjectdata.getString("user_id");
-*//*
-
-                    }else{
-
-                    }*/
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-
-            return response;
-
-
-        }
-
-        @Override
-        protected void onPostExecute(String responce) {
-            super.onPostExecute(responce);
-
-
-            pDialog.dismiss();
-
-            if (status == null || status.trim().length() == 0 || status.equals("null")){
-
-            }else if (status.equals("success")) {
-
-
-
-                SharedPreferences sharedPreferences = getSharedPreferences(sharedPrefs.Pref, 0);
-                SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.clear();
-                edit.commit();
-
-                //Starting login activity
-                Intent intent =new Intent(MainActivity.this, Activity_Splash.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
-
-
-            }
-            else {
-                Toast.makeText(MainActivity.this, strmessage, Toast.LENGTH_SHORT).show();
-
-
-            }
-
-
-
-        }
-
-
-
-    }
 
     private void RetrofitLogin() {
 
@@ -403,12 +519,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //call retrofit
         //making api call
-        Api api = ApiClient.getClient().create(Api.class);
-        Call<LogoutJson> login = api.logoutjson("Bearer "+strregisteredtoken);
+        String viewuseremail = sharedPrefs.getPreferences(getApplicationContext(), sharedPrefs.Pref_userId);
+        String social_id = sharedPrefs.getPreferences(getApplicationContext(), sharedPrefs.Social_id);
 
-        login.enqueue(new Callback<LogoutJson>() {
+        Api api = ApiClient.getClient().create(Api.class);
+        Call<LogoutExample> login = api.logoutjson(social_id,viewuseremail);
+
+        login.enqueue(new Callback<LogoutExample>() {
             @Override
-            public void onResponse(Call<LogoutJson> call, Response<LogoutJson> response) {
+            public void onResponse(Call<LogoutExample> call, Response<LogoutExample> response) {
                 pProgressDialog.dismiss();
                 Log.e("testing","status = "+response.body().getStatus());
                 Log.e("testing","response = "+response.body().getResponse().getType());
@@ -418,13 +537,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }else if (response.body().getStatus().equals("success")) {
                     if (response.body().getResponse() == null ){
 
-                    }else if (response.body().getResponse().getType().equals("logout_success")){
+                    }else if (response.body().getStatus().equals("success")){
+                        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
+                        sharedPreferences.edit().remove(sharedPrefs.Pref_userId).commit();
 
-                        SharedPreferences sharedPreferences = getSharedPreferences(sharedPrefs.Pref, 0);
-                        SharedPreferences.Editor edit = sharedPreferences.edit();
-                        edit.clear();
-                        edit.commit();
 
                         //Starting login activity
                         Intent intent =new Intent(MainActivity.this, Activity_Splash.class);
@@ -436,24 +553,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Toast.makeText(MainActivity.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
                     }
 
-
-
-
-
-                   /*
-
-                    Intent intent=new Intent(Activity_Event_Details.this,Activity_Event_Details.class);
-                    startActivity(intent);
-                    finish();
-
-*/
-
-
-
-
-                    //  Toast.makeText(Activity_Event_Details.this, message, Toast.LENGTH_SHORT).show();
-
-
                 } else  {
                     Log.e("testing","error");
                     Toast.makeText(MainActivity.this, response.body().getResponse().getMessage(), Toast.LENGTH_SHORT).show();
@@ -464,7 +563,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             @Override
-            public void onFailure(Call<LogoutJson> call, Throwable t) {
+            public void onFailure(Call<LogoutExample> call, Throwable t) {
                 Toast.makeText(MainActivity.this,t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                 pProgressDialog.dismiss();
 
@@ -476,6 +575,94 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+    private void Activity_Profile() {
 
+        Log.e("testing", "strregisteredtoken = " + "matchesList");
+
+        dialog = new ProgressDialog(MainActivity.this);
+        dialog.setMessage("Please Wait ...");
+        dialog.setIndeterminate(false);
+        dialog.setCancelable(false);
+        dialog.show();
+
+//        Api api = ApiClient.getClient().create(Api.class);
+//        Call<AboutExample> login = api.PlayersList("1");
+
+
+        String viewuseremail = sharedPrefs.getPreferences(getApplicationContext(), sharedPrefs.Pref_userId);
+        Log.e("testing", "viewuseremail = " + viewuseremail);
+
+        Api api = ApiClient.getClient().create(Api.class);
+        Call<AboutExample> login = api.aboutusjson(viewuseremail);
+        login.enqueue(new Callback<AboutExample>() {
+            @Override
+            public void onResponse(Call<AboutExample> call, Response<AboutExample> response) {
+                dialog.dismiss();
+                Log.e("testing", "status = " + response.body().getStatus());
+                Log.e("testing", "response = " + response.body().getAboutResponse().getType());
+                //  Log.e("testing","response = "+response.body().getData().getPageContent());
+
+                Log.e("testing", "response = " + response.body());
+
+                if (response.body().getStatus() == null || response.body().getStatus().length() == 0) {
+
+                } else if (response.body().getStatus().equals("success")) {
+                    if (response.body().getAboutResponse() == null) {
+
+                    } else if (response.body().getAboutResponse().getType().equals("data_available")) {
+
+                        drawer_title_name.setText(Html.fromHtml(response.body().getAboutData().getName()));
+                        Log.e("testing", "response = " +response.body().getAboutData().getName());
+
+                        drawer_titleemail.setText(Html.fromHtml(response.body().getAboutData().getEmail()));
+                        Log.e("testing Image",String.valueOf(response.body().getAboutData().getImage()));
+
+                        if (String.valueOf(response.body().getAboutData().getImage()).equals("null") || response.body().getAboutData().getImage() .toString().length() == 0) {
+                            Glide.with(getApplicationContext())
+                                    .load((R.drawable.user)).placeholder(R.drawable.user)
+                                    .into(imageViewprofile);
+                            Log.e("testing", "getImageUrl = " + "null");
+
+                        } else {
+                            Glide.with(getApplicationContext())
+                                    .load(Uri.parse(response.body().getAboutData().getImage().toString()))
+                                    .error(R.drawable.user)
+                                    .into(imageViewprofile);
+                            Log.e("testing", "getImageUrl = " + "image");
+                            sharedPrefs.savepref(getApplicationContext(), sharedPrefs.Profile_Image, response.body().getAboutData().getImage().toString());
+
+                        }
+                        
+                        if ((response.body().getAboutData().getWalletAmount()==null)){
+                            textwallet.setText("\u20B9"+"0");
+
+                        }else {
+                            textwallet.setText(("\u20B9"+" "+response.body().getAboutData().getWalletAmount().toString()));
+                            sharedPrefs.savepref(getApplicationContext(), sharedPrefs.Wallet_Amount, response.body().getAboutData().getWalletAmount().toString());
+
+                        }
+//                        textdob.setText(Html.fromHtml(response.body().getAboutData().get()));
+//                        editname.setText(Html.fromHtml(response.body().getAboutData().getName()));
+
+                    } else {
+                        Toast.makeText(MainActivity.this, response.body().getAboutResponse().getType(), Toast.LENGTH_SHORT).show();
+                    }
+
+                } else {
+                    Log.e("testing", "error");
+                    dialog.dismiss();
+                    Toast.makeText(getApplicationContext(), response.body().getAboutResponse().getType(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<AboutExample> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+
+            }
+        });
+    }
 
 }

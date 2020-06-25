@@ -14,3 +14,4 @@ public class Activity_InviteFriends extends AppCompatActivity {
         setContentView(R.layout.activity_invite_friends);
     }
 }
+ 

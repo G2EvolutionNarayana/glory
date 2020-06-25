@@ -64,7 +64,7 @@
 
 
                         <ImageView
-                            android:id="@+id/imageView2"
+                            android:id="@+id/xIv5Side"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             app:srcCompat="@drawable/side_5" />
@@ -107,7 +107,7 @@
 
 
                         <ImageView
-                            android:id="@+id/imageView3"
+                            android:id="@+id/xIv7Side"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             app:srcCompat="@drawable/side_7" />

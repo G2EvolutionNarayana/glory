@@ -55,7 +55,7 @@ public class Activity_HelpDesk extends AppCompatActivity {
         linearemailid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String strmail = "Glory5@gmail.com";
+                String strmail = "Hello@glory5.in";
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                         "mailto", strmail, null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Glory5");
@@ -90,7 +90,7 @@ public class Activity_HelpDesk extends AppCompatActivity {
                     // Toast.makeText(Activity_Balance.this, "Enter Amount", Toast.LENGTH_SHORT).show();
                 }else{
 
-                    Toast.makeText(Activity_HelpDesk.this, "Need to Integrate API", Toast.LENGTH_SHORT).show();
+
 
                     RetrofitUploadFAQ(strfaqquestion);
                    /* ConnectionDetector cd = new ConnectionDetector(getActivity());
@@ -115,7 +115,7 @@ public class Activity_HelpDesk extends AppCompatActivity {
         dialog.show();
     }
     private void RetrofitUploadFAQ(final String faq) {
-        final ProgressDialog pProgressDialog;
+        ProgressDialog pProgressDialog;
         pProgressDialog = new ProgressDialog(Activity_HelpDesk.this);
         pProgressDialog.setMessage("Please Wait ...");
         pProgressDialog.setIndeterminate(false);

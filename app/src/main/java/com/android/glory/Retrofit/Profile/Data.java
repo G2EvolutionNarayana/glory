@@ -1,4 +1,5 @@
 package com.android.glory.Retrofit.Profile;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

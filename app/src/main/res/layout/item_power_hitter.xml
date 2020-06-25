@@ -12,6 +12,8 @@
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -52,6 +54,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:text="158"
+            android:visibility="gone"
             android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/player_name"
             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -76,7 +79,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/points"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/points"
-            app:layout_constraintTop_toTopOf="@+id/points"
-            app:srcCompat="@drawable/ph_icon" />
+            app:layout_constraintTop_toTopOf="@+id/points" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

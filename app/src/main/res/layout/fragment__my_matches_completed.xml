@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <LinearLayout
+        android:id="@+id/xLinLayMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You haven't joined any contests"
+            android:padding="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="16dp"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_trophy"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Join Contest For any of the Upcoming Matches"
+            android:padding="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="16dp" />
+        <Button
+            android:id="@+id/xBtncallMain"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="VIEW UPCOMING MATCHES"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/theme"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_white_background"
+            android:layout_weight="0.5"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

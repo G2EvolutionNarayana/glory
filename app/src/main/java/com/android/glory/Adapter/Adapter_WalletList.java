@@ -1,6 +1,7 @@
 package com.android.glory.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,10 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.glory.Activity.ActivityTransactionList;
+import com.android.glory.Activity.BonusActivity;
+import com.android.glory.Activity.DepositedActivity;
+import com.android.glory.Activity.WinningListActivity;
 import com.android.glory.Pojo.Pojo_WalletList;
 import com.android.glory.R;
 import com.android.glory.ViewHolder.ViewHolder_WalletList;
@@ -109,19 +114,38 @@ public class Adapter_WalletList extends RecyclerView.Adapter<ViewHolder_WalletLi
 
         mPreviousPosition = position;
 
-        holder.feederThumbnail.setOnClickListener(new View.OnClickListener() {
+//        holder.feederThumbnail.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                qty = feederInfo.getRowid();
+//               String name = feederInfo.getFeederName();
+//
+//                if (mCallback!=null){
+//                    mCallback.onClickedItem(position,qty, 1, name);
+//                }
+//            }
+//        });
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                qty = feederInfo.getRowid();
-               String name = feederInfo.getFeederName();
-
-                if (mCallback!=null){
-                    mCallback.onClickedItem(position,qty, 1, name);
+                if (position==1){
+                    Intent intent=new Intent(mContext, DepositedActivity.class);
+                    mContext.startActivity(intent);
+                }else if(position==0){
+                    Intent intent=new Intent(mContext, WinningListActivity.class);
+                    mContext.startActivity(intent);
+                }else if (position==3){
+                    Intent intent=new Intent(mContext, ActivityTransactionList.class);
+                    mContext.startActivity(intent);
                 }
+                else if (position==2){
+                    Intent intent=new Intent(mContext, BonusActivity.class);
+                    mContext.startActivity(intent);
+                }
+
             }
         });
-
 
 
 

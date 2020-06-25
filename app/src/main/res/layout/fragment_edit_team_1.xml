@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    tools:context=".Fragment.EditTeam_1Fragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_players"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+    <LinearLayout
+        android:id="@+id/xLinLayMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Match Players List is Not Announced."
+            android:padding="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="16dp"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_trophy"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Join Contest For any of the Upcoming Matches"
+            android:padding="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="16dp" />
+        <Button
+            android:id="@+id/xBtncallMain"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="VIEW UPCOMING MATCHES"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/theme"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_white_background"
+            android:layout_weight="0.5"
+            />
+    </LinearLayout>
+</RelativeLayout>

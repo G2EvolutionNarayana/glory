@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">Glory5</string>
+
+    <string name="facebook_app_id">224846352025985</string>
+    <string name="fb_login_protocol_scheme">fb224846352025985</string>
+    <string name="CashFree_id">1446344dd53f698c06f9ce52136441</string>
+
     <dimen name="drawer_width">300dp</dimen>
+    <string name="app_name">Glory5</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="purpose">Feel free to contact us at any time using our contact form or one of the below contact number</string>
@@ -10,14 +15,18 @@
 
     <string name="p_p">Privacy &amp; Policy</string>
 
-
     <string name="Rs">\u20B9</string>
     <string name="Rswallet">\u20B9 50</string>
 
     <string name="Rs100">\u20B9 100</string>
     <string name="Rs200">\u20B9 200</string>
     <string name="Rs500">\u20B9 500</string>
+    <string name="Rs250">\u20B9 250</string>
+    <string name="Rs1000">\u20B9 1000</string>
 
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <!--    <string name="facebook_app_id">894882580618030</string>-->
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

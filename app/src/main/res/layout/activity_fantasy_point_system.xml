@@ -589,7 +589,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="(*):- The points will be added only if the total points at the end of the match are equal between two contestants.
+                android:text="(*):- The points will be added only if the total points at the end of the contestMatch are equal between two contestants.
 "
                 android:textColor="@color/black"
                 android:padding="10dp"
@@ -1149,7 +1149,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="(*):- The points will be added only if the total points at the end of the match are equal between two contestants.
+                android:text="(*):- The points will be added only if the total points at the end of the contestMatch are equal between two contestants.
 "
                 android:textColor="@color/black"
                 android:padding="10dp"

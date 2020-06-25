@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:orientation="vertical">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -35,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="12dp"
+                android:visibility="gone"
                 android:layout_marginEnd="25dp"
                 android:orientation="horizontal">
 
@@ -59,18 +59,39 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:gravity="center"
                 android:paddingTop="8dp"
                 android:paddingBottom="10dp"
                 android:text="---- OR ----"
                 android:textColor="@color/white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:orientation="horizontal">
 
+                <EditText
+                    android:id="@+id/editFullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:background="@drawable/bordergrey"
+                    android:drawableLeft="@drawable/ic_action_person"
+                    android:hint=" Full name "
+                    android:padding="8dp"
+                    android:singleLine="true"
+                    android:textSize="13dp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
+                android:layout_marginTop="5dp"
+
                 android:orientation="horizontal">
 
                 <EditText

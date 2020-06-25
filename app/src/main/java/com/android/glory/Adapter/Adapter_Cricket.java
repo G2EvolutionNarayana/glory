@@ -58,7 +58,7 @@ public class Adapter_Cricket extends RecyclerView.Adapter<Adapter_Cricket.Filter
 
         final Match follow = courses_offered_list.get(position);
 
-        holder.texttitle.setText(follow.getName());
+        holder.texttitle.setText(follow.getSeries().getShortName());
         holder.textname1.setText(follow.getHomeTeam().getShortName());
         holder.textname2.setText(follow.getAwayTeam().getShortName());
 

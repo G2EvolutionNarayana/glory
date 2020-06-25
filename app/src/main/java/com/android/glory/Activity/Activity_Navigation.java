@@ -6,13 +6,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.android.glory.Adapter.Adapter_Navigation;
 import com.android.glory.Pojo.Pojo_navigation;
 import com.android.glory.R;
+import com.android.glory.Utilites.sharedPrefs;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -21,9 +25,6 @@ public class Activity_Navigation extends AppCompatActivity implements  Adapter_N
     String []Id;
     String []Title;
     Integer []Image;
-
-
-
 
     Pojo_navigation feedInfo;
     Adapter_Navigation mAdapterFeeds;
@@ -37,6 +38,7 @@ public class Activity_Navigation extends AppCompatActivity implements  Adapter_N
     ImageView imgdialogfiltercancel;
     Dialog dialograteus;
     LinearLayout lineardialog;
+    ImageView xIvProfile;
 
 
     static String registeruserid, registermobileno;
@@ -45,22 +47,7 @@ public class Activity_Navigation extends AppCompatActivity implements  Adapter_N
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-
-     /*   sharedPrefs prefuserdata = getSharedPreferences("registeruser", 0);
-        registeruserid = prefuserdata.getString("registeruserid", "");
-        registermobileno = prefuserdata.getString("registermobileno", "");
-
-
-
-        if (registeruserid == null || registeruserid.equals("0") || registeruserid.length() == 0){
-            Id = new String[]{"0","1","2","3"};
-            Title = new String[]{"Home","About Us","Refer a Friend", "Login"};
-            Image = new Integer[]{R.drawable.home,  R.drawable.aboutus, R.drawable.refer, R.drawable.logout};
-        }else{
-            Id = new String[]{"0","1","2","3","4","5","6","7","8","9","10","11"};
-            Title = new String[]{"Home","Profile","Notification", "Wishlist","Transaction","Reminder","Rate Us","Support","Contact Us","About Us","Refer a Friend","Logout"};
-            Image = new Integer[]{R.drawable.home, R.drawable.myaccount, R.drawable.notificationicon,R.drawable.whishlistselected, R.drawable.transaction,R.drawable.transaction, R.drawable.star, R.drawable.support,R.drawable.contactus,R.drawable.aboutus, R.drawable.refer, R.drawable.logout};
-        }*/
+        xIvProfile=(ImageView)findViewById(R.id.xIvProfile);
         Id = new String[]{"0","1","2","3","4","5","6","7"};
 
         Title = new String[]{"Invite Friends","Fantasy Point System","How to Play","Helpdesk","About Us","Contact Us","Legality","Terms & Conditions"};
@@ -68,7 +55,22 @@ public class Activity_Navigation extends AppCompatActivity implements  Adapter_N
         mFeedRecyler = (RecyclerView) findViewById(R.id.recycler_viewcart);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(Activity_Navigation.this);
         mFeedRecyler.setLayoutManager(mLayoutManager);
+        String image= sharedPrefs.getPreferences(getApplicationContext(), sharedPrefs.Profile_Image);
 
+        if (image == null || image.length() == 0) {
+            Glide.with(getApplicationContext())
+                    .load((R.drawable.user)).placeholder(R.drawable.user)
+                    .into(xIvProfile);
+            Log.e("testing", "getImageUrl = " + "null");
+
+        } else {
+            Glide.with(getApplicationContext())
+                    .load(Uri.parse(image))
+                    .error(R.drawable.user)
+                    .into(xIvProfile);
+            Log.e("testing", "getImageUrl = " + "image");
+
+        }
         //  mFeedRecyler.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         mFeedRecyler.setHasFixedSize(true);
         mCallback = this;

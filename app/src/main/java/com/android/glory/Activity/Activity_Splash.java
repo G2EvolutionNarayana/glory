@@ -8,8 +8,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
@@ -21,6 +25,9 @@ import com.android.glory.Utilites.sharedPrefs;
 import com.android.glory.app.Config;
 import com.android.glory.utils.NotificationUtils;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Activity_Splash extends AppCompatActivity {
 
@@ -39,6 +46,8 @@ public class Activity_Splash extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+
         //------------------------FCM Notification--------------------------
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
@@ -80,15 +89,12 @@ public class Activity_Splash extends AppCompatActivity {
         Log.e("testing", "Firebase reg id: " + regId);
 
         if (!TextUtils.isEmpty(regId))
-            Log.e("testing","Firebase Reg Id: " + regId);
+            Log.e("testing", "Firebase Reg Id: " + regId);
             // txtRegId.setText("Firebase Reg Id: " + regId);
         else
-            Log.e("testing","Firebase Reg Id is not received yet!");
+            Log.e("testing", "Firebase Reg Id is not received yet!");
         //  txtRegId.setText("Firebase Reg Id is not received yet!");
     }
-
-
-
 
 
     @Override
@@ -118,24 +124,21 @@ public class Activity_Splash extends AppCompatActivity {
     //------------------------FCM Notification------------------------------------------------------
 
 
-
     private void threadcalling() {
 
         // StartSmartAnimation.startAnimation(logotxt.findViewById(R.id.logotxt), AnimationType.ZoomIn, 1000, 0, true, 100);
-        Thread timerThread = new Thread(){
-            public void run(){
-                try{
+             Thread timerThread = new Thread() {
+            public void run() {
+                try {
                     sleep(2000);
-                }catch(InterruptedException e){
+                } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally{
+                } finally {
 
 
+                    String viewuseremail = sharedPrefs.getPreferences(getApplicationContext(), sharedPrefs.Pref_userId);
 
-                    SharedPreferences prefuserdata = getSharedPreferences(sharedPrefs.Pref, 0);
-                    String viewuseremail = prefuserdata.getString(sharedPrefs.Pref_userId, "");
-
-                    Log.e("userId","userid====splash"+viewuseremail);
+                    Log.e("userId", "userid====splash" + viewuseremail);
 
                     if (viewuseremail.equals("") || viewuseremail.equals("null") || viewuseremail.equals(null) || viewuseremail.equals("0")) {
 
@@ -152,7 +155,8 @@ public class Activity_Splash extends AppCompatActivity {
                     }
 
 
-                }}
+                }
+            }
         };
         timerThread.start();
 

@@ -44,34 +44,34 @@ public class Activity_ContactUs extends AppCompatActivity {
 
         submit = (Button) findViewById(R.id.submit);
 
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                streditname = editname.getText().toString();
-                streditemailid = editemailid.getText().toString();
-                streditnumber = editnumber.getText().toString();
-                streditmessage = editmessage.getText().toString();
+            submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    streditname = editname.getText().toString();
+                    streditemailid = editemailid.getText().toString();
+                    streditnumber = editnumber.getText().toString();
+                    streditmessage = editmessage.getText().toString();
 
-                if (streditname == null || streditname.trim().length() == 0){
-                    Toast.makeText(Activity_ContactUs.this, "Please Enter Name", Toast.LENGTH_LONG).show();
-                }else if (streditemailid == null || streditemailid.trim().length() == 0){
-                    Toast.makeText(Activity_ContactUs.this, "Please Enter Email", Toast.LENGTH_LONG).show();
-                }else if (streditnumber == null || streditnumber.trim().length() == 0){
-                    Toast.makeText(Activity_ContactUs.this, "Please Enter Telephone Number", Toast.LENGTH_LONG).show();
-                }else if (streditmessage == null || streditmessage.trim().length() == 0){
-                    Toast.makeText(Activity_ContactUs.this, "Please Enter Message", Toast.LENGTH_LONG).show();
-                }else{
-                    RetrofitUploadContact(streditname, streditemailid, streditnumber, streditmessage);
+                    if (streditname == null || streditname.trim().length() == 0){
+                        Toast.makeText(Activity_ContactUs.this, "Please Enter Name", Toast.LENGTH_LONG).show();
+                    }else if (streditemailid == null || streditemailid.trim().length() == 0){
+                        Toast.makeText(Activity_ContactUs.this, "Please Enter Email", Toast.LENGTH_LONG).show();
+                    }else if (streditnumber == null || streditnumber.trim().length() == 0){
+                        Toast.makeText(Activity_ContactUs.this, "Please Enter Telephone Number", Toast.LENGTH_LONG).show();
+                    }else if (streditmessage == null || streditmessage.trim().length() == 0){
+                        Toast.makeText(Activity_ContactUs.this, "Please Enter Message", Toast.LENGTH_LONG).show();
+                    }else{
+                        RetrofitUploadContact(streditname, streditemailid, streditnumber, streditmessage);
+                    }
+
                 }
-
-            }
-        });
+            });
 
     }
 
 
     private void RetrofitUploadContact(final String name, String email, String number, String message) {
-        final ProgressDialog pProgressDialog;
+        ProgressDialog pProgressDialog;
         pProgressDialog = new ProgressDialog(Activity_ContactUs.this);
         pProgressDialog.setMessage("Please Wait ...");
         pProgressDialog.setIndeterminate(false);
@@ -106,24 +106,6 @@ public class Activity_ContactUs extends AppCompatActivity {
                     }else{
                         Toast.makeText(Activity_ContactUs.this, "Something went wrong", Toast.LENGTH_LONG).show();
                     }
-
-
-
-
-
-                   /*
-
-                    Intent intent=new Intent(Activity_Event_Details.this,Activity_Event_Details.class);
-                    startActivity(intent);
-                    finish();
-
-*/
-
-
-
-
-                    //  Toast.makeText(Activity_Event_Details.this, message, Toast.LENGTH_SHORT).show();
-
 
                 } else  {
                     Log.e("testing","error");

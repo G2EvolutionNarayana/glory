@@ -52,6 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <LinearLayout
+        android:id="@+id/xLinLayEntryFee"
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:layout_marginEnd="16dp"
@@ -82,7 +83,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prize_amount" />
@@ -95,7 +96,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:text="4526 spots left"
+        android:text="0/2 JOINED"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,6 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:visibility="gone"
         android:text="542 spots"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="@+id/spot_left"
