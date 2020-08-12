@@ -5,21 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Activity.AccountVerifyActivity">
+    tools:context="com.glory.apk.Activity.AccountVerifyActivity">
+
     <ScrollView
+        android:id="@+id/xScroLLMain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:background="@drawable/borderlogin"
                 android:gravity="center"
                 android:orientation="vertical">
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imageViewprofile"
                     android:layout_width="130dp"
@@ -31,244 +36,253 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Verify Your Account"
-                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                android:textColor="@color/theme"
+                android:layout_marginRight="10dp"
                 android:fontFamily="@font/roboto_bold"
-                android:textSize="20dp"
                 android:gravity="center"
+                android:padding="10dp"
+                android:text="Verify Your Account"
                 android:textAllCaps="true"
-                android:padding="10dp"/>
+                android:textColor="@color/theme"
+                android:textSize="20dp" />
 
 
             <RelativeLayout
+                android:id="@+id/xRelayEmailVerify"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/bordercurve"
-                android:padding="10dp"
                 android:layout_margin="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordercurve"
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toLeftOf="@+id/xTvMailVerify">
-                    <EditText
+
+                    <TextView
                         android:id="@+id/editname"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
-                        android:hint=" Email "
                         android:clickable="false"
-                        android:editable="false"
-                        android:focusable="false"
                         android:inputType="textEmailAddress"
-                        android:textColorHint="@color/black"
                         android:padding="8dp"
                         android:singleLine="true"
+                        android:text=" Email "
+                        android:textColor="@color/black"
                         android:textSize="13dp" />
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/xTvMailVerify"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Verify"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/borderblack"
                     android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
                     android:gravity="center"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/borderblack"/>
+                    android:text="Verify"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
             </RelativeLayout>
+
             <RelativeLayout
+                android:id="@+id/xRelayPhoneVerify"
+
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/bordercurve"
-                android:padding="10dp"
                 android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordercurve"
 
-                android:layout_marginTop="10dp">
+                android:padding="10dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toLeftOf="@+id/xTvMobileVerify">
 
-                    <EditText
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
-                        android:textColorHint="@color/black"
-                        android:inputType="number"
-                        android:clickable="false"
-                        android:editable="false"
-                        android:focusable="false"
-                        android:hint=" Mobile Number "
                         android:padding="8dp"
                         android:singleLine="true"
+
+                        android:text=" Mobile Number "
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         android:textSize="13dp" />
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/xTvMobileVerify"
                     android:layout_width="wrap_content"
-                    android:fontFamily="@font/roboto_bold"
-
                     android:layout_height="match_parent"
-                    android:text="Verify"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
+
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/borderblack"
+                    android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/borderblack"/>
+                    android:text="Verify"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
             </RelativeLayout>
+
             <RelativeLayout
+                android:id="@+id/xRelayPanVerify"
+
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/bordercurve"
-                android:padding="10dp"
                 android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordercurve"
 
-                android:layout_marginTop="10dp">
+                android:padding="10dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toLeftOf="@+id/xTvPanCardVerify">
 
-                    <EditText
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
-                        android:hint=" Pan Card "
-                        android:textColorHint="@color/black"
-                        android:inputType="number"
-                        android:clickable="false"
-                        android:editable="false"
-                        android:focusable="false"
                         android:padding="8dp"
                         android:singleLine="true"
+                        android:text=" Pan Card "
+                        android:textColor="@color/black"
                         android:textSize="13dp" />
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/xTvPanCardVerify"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Verify"
-                    android:fontFamily="@font/roboto_bold"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/borderblack"
 
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/borderblack"/>
+                    android:text="Verify"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
             </RelativeLayout>
+
             <RelativeLayout
+                android:id="@+id/xRelayBankVerify"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/bordercurve"
-                android:padding="10dp"
                 android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordercurve"
 
-                android:layout_marginTop="10dp">
+                android:padding="10dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toLeftOf="@+id/xTvBankVerify">
 
-                    <EditText
+                    <TextView
                         android:id="@+id/xEtBank"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
-                        android:inputType="number"
-
-                        android:clickable="false"
-                        android:editable="false"
-                        android:focusable="false"
-                        android:hint=" Bank Account "
                         android:padding="8dp"
-                        android:textColorHint="@color/black"
                         android:singleLine="true"
+                        android:text=" Bank Account "
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         android:textSize="13dp" />
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/xTvBankVerify"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Verify"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/borderblack"
                     android:fontFamily="@font/roboto_bold"
-
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
                     android:gravity="center"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/borderblack"/>
+                    android:text="Verify"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:id="@+id/xRelayHide"
                 android:layout_width="match_parent"
-                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:visibility="gone"
-                android:layout_height="wrap_content">
+                android:layout_marginRight="20dp"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
                         android:fontFamily="@font/roboto_bold"
-                        android:textSize="13dp"
-                        android:text="To transfer winnings to your bank account, please complete the below mentioned steps first."/>
+                        android:text="To transfer winnings to your bank account, please complete the below mentioned steps first."
+                        android:textColor="@color/white"
+                        android:textSize="13dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
                         android:fontFamily="@font/roboto_regular"
-                        android:textSize="13dp"
-                        android:text="    \u2022 Verify your Email"/>
+                        android:text="    \u2022 Verify your Email"
+                        android:textColor="@color/white"
+                        android:textSize="13dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
                         android:fontFamily="@font/roboto_regular"
-                        android:textSize="13dp"
-                        android:text="    \u2022 Verify your Mobile number"/>
+                        android:text="    \u2022 Verify your Mobile number"
+                        android:textColor="@color/white"
+                        android:textSize="13dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
                         android:fontFamily="@font/roboto_regular"
-                        android:textSize="13dp"
-                        android:text="    \u2022 Verify your Pancard"/>
-
+                        android:text="    \u2022 Verify your Pancard"
+                        android:textColor="@color/white"
+                        android:textSize="13dp" />
 
 
                 </LinearLayout>
 
 
-
-
-
-
-
-
             </RelativeLayout>
+
+            <TextView
+                android:id="@+id/xTvReson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingLeft="30dp"
+                android:textColor="@color/red"
+                android:textSize="13dp"
+                android:visibility="visible" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

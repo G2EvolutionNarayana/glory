@@ -24,7 +24,7 @@
             android:paddingRight="20dp"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:text="Payment Successfull"/>
+           />
 
         <Button
             android:id="@+id/Ok"

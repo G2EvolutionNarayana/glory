@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="15dp"
+    android:layout_margin="20dp"
+    android:layout_gravity="center"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:layout_gravity="center_horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/top_curved_dialog"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Payment Mobile Number"
+                android:gravity="center"
+                android:layout_toLeftOf="@+id/xIvCancel"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_bold"
+                android:textAllCaps="true"
+                android:textSize="14dp"
+                />
+            <ImageView
+                android:id="@+id/xIvCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_clear"
+                android:paddingRight="15dp" android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please enter your register mobile to proceed payment"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="12dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editmobileno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4"
+                android:background="@drawable/bordergrey"
+                android:drawableLeft="@drawable/ic_action_phone"
+                android:hint=" Mobile No "
+                android:inputType="number"
+                android:maxLength="10"
+                android:padding="8dp"
+                android:paddingLeft="10sp"
+                android:singleLine="true"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/phoneContinue"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="CONTINUE"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_gravity="center"
+            android:background="@drawable/gray_rounded_background"
+            android:layout_marginTop="15dp"
+            android:textSize="12dp"
+            android:gravity="center"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

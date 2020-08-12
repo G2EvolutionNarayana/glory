@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.android.glory">
+    package="com.glory.apk">
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -24,7 +24,10 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        tools:replace="allowBackup,supportsRtl"
+        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
         android:allowClearUserData="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher_icon_new"
@@ -36,228 +39,268 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:node="merge">
-        <activity android:name=".Activity.WithDrawAmountActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity">
-        </activity>
-        <activity android:name=".Activity.BonusActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.AddMoneyActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.SelectedPreview7Activity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.SelectedPreview5Activity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.BankAccountVerifyActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.VerifyPanCardActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.VerifyPhoneActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.VerifyPhoneAccountActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.VerifyEmailAccountActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.AccountVerifyActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.WinningListActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.ActivityTransactionList"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.DepositedActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.CompetedPreview7Activity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.CompletedPreviewActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.GroundPreviewActivity7"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.GroundPreviewActivity5"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.CompletedActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.EditHitterSelectionActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.EditPlayerActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.LivePreview7MainActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.LivePreview5MainActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.ActivityUpcoming"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.Preview7MainActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.Preview5MainActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.BankDetailsVerifeyActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.Activity_live"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.ActivityUpdatePassword"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.PreviewActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.Activity_GoogleProfille"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.Activity_Contest"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.Activity_PowerHitter"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.Activity_SelectPlayer"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity.Activity_CricketList"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".Activity_Testing2"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name="com.glory.apk.Activity.WithdrawalListActivity"></activity>
+        <activity android:name="com.glory.apk.Activity.FinalWithDrawAmountActivity" />
+        <activity android:name="com.glory.apk.Activity.FrequentlyAskedQuestionsActivity" />
+        <activity android:name="com.glory.apk.Activity.BankAccountListActivity" />
         <activity
-            android:name=".Activity.Activity_FantasyPointSystem"
+            android:name="com.glory.apk.Activity.WithDrawAmountActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_HTP_Balance"
+            android:name="com.glory.apk.Activity.BonusActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_HTP_ManageTeam"
+            android:name="com.glory.apk.Activity.AddMoneyActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_HTP_CreateTeam"
+            android:name="com.glory.apk.Activity.SelectedPreview7Activity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_HTPIntroduction"
+            android:name="com.glory.apk.Activity.SelectedPreview5Activity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_Legality"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity
-            android:name=".Activity.Activity_HelpDesk"
+            android:name="com.glory.apk.Activity.BankAccountVerifyActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_Howtoplay"
+            android:name="com.glory.apk.Activity.VerifyPanCardActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_InviteFriends"
+            android:name="com.glory.apk.Activity.VerifyPhoneActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_Navigation"
+            android:name="com.glory.apk.Activity.VerifyPhoneAccountActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_PointSystem"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity
-            android:name=".Activity.Activity_InfoSettings"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity
-            android:name=".Activity.Activity_Rewards"
+            android:name="com.glory.apk.Activity.VerifyEmailAccountActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_Balance"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity
-            android:name=".Activity.Activity_PP"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity
-            android:name=".Activity.Activity_TC"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity
-            android:name=".Activity.Activity_ContactUs"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name=".Activity.Activity_AboutUs"
+            android:name="com.glory.apk.Activity.AccountVerifyActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_Change_Pwd"
+            android:name="com.glory.apk.Activity.WinningListActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_Profile"
+            android:name="com.glory.apk.Activity.ActivityTransactionList"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.DepositedActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.CompetedPreview7Activity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.CompletedPreviewActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.GroundPreviewActivity7"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.GroundPreviewActivity5"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.CompletedActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.EditHitterSelectionActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.EditPlayerActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.LivePreview7MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.LivePreview5MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.ActivityUpcoming"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Preview7MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Preview5MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.BankDetailsVerifeyActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_live"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.ActivityUpdatePassword"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.PreviewActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_GoogleProfille"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_Contest"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_PowerHitter"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_SelectPlayer"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_CricketList"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity_Testing2"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_FantasyPointSystem"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_HTP_Balance"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_HTP_ManageTeam"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_HTP_CreateTeam"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_HTPIntroduction"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_Legality"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_HelpDesk"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_Howtoplay"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_InviteFriends"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_Navigation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_PointSystem"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_InfoSettings"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_Rewards"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_Balance"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_PP"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_TC"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_ContactUs"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_AboutUs"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_Change_Pwd"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_Profile"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:windowSoftInputMode="stateAlwaysHidden">
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:screenOrientation="portrait"
-                android:value=".MainActivity" />
+                android:value="com.glory.apk.MainActivity" />
         </activity>
         <activity
-            android:name=".Activity.ActivityForgetPassword"
+            android:name="com.glory.apk.Activity.ActivityForgetPassword"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_SignupOtp"
+            android:name="com.glory.apk.Activity.Activity_SignupOtp"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_Signup"
+            android:name="com.glory.apk.MainActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Activity.Activity_Login"
+            android:name="com.glory.apk.Activity.Activity_Signup"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".Activity.Activity_Splash">
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.glory.apk.Activity.Activity_Login"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name="com.glory.apk.Activity.Activity_Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -275,7 +318,7 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/theme" />
 
-        <service android:name=".service.MyFirebaseMessagingService">
+        <service android:name="com.glory.apk.service.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

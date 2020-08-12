@@ -1,111 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="15dp"
     android:layout_margin="20dp"
-    app:cardCornerRadius="5dp">
-
+    android:layout_gravity="center"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:layout_gravity="center_horizontal">
         <RelativeLayout
-            android:id="@+id/xRelayCancel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:background="@drawable/top_curved_dialog"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="This team will not be saved !!"
+                android:gravity="center"
+                android:layout_toLeftOf="@+id/xIvCancel"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_bold"
+                android:textAllCaps="true"
+                android:textSize="14dp"
+                />
             <ImageView
                 android:id="@+id/xIvCancel"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/cross" />
-
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_clear"
+                android:paddingRight="15dp" android:layout_alignParentRight="true"/>
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="5dp">
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center_horizontal">
+            android:text="Are you sure you want to go back?"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="12dp"
+            />
 
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="This Team will not be saved!!"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/roboto_bold"
-                        android:gravity="center"
-                        android:textAllCaps="true"
-                        android:textSize="16dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="10dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="are you sure you want to go back?"
-                            android:textAlignment="center"
-                            android:fontFamily="@font/roboto_medium"
-                            android:gravity="bottom"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            tools:ignore="RtlCompat" />
-                    </LinearLayout>
-                </LinearLayout>
-                <TextView
-                    android:id="@+id/textContinue"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Continue"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:padding="5dp"
-                    android:layout_marginBottom="20dp"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center"
-                    android:background="@drawable/borderblack"
-                    android:layout_marginTop="20dp"
-                    android:textSize="14dp"
-                    android:gravity="center"/>
-            </LinearLayout>
-        </LinearLayout>
-
-
+        <TextView
+            android:id="@+id/textContinue"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="CONTINUE"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_gravity="center"
+            android:background="@drawable/gray_rounded_background"
+            android:layout_marginTop="15dp"
+            android:textSize="12dp"
+            android:gravity="center"/>
     </LinearLayout>
-
-
 </androidx.cardview.widget.CardView>
-
-

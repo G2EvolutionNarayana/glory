@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/cricketground"
 
-    tools:context=".Activity.CompletedPreviewActivity">
+    tools:context="com.glory.apk.Activity.CompletedPreviewActivity">
     <ImageView
         android:id="@+id/xIvCross"
         android:layout_width="30dp"
@@ -51,7 +51,6 @@
                 android:layout_marginTop="-10dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/roboto_bold"
-                android:src="@drawable/side_5"
                 android:text="l. narayan"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
@@ -108,7 +107,6 @@
                     android:layout_marginTop="-10dp"
                     android:background="@drawable/button_background"
                     android:fontFamily="@font/roboto_bold"
-                    android:src="@drawable/side_5"
                     android:text="l. narayan"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
@@ -159,7 +157,6 @@
                     android:layout_marginTop="-10dp"
                     android:background="@drawable/button_background"
                     android:fontFamily="@font/roboto_bold"
-                    android:src="@drawable/side_5"
                     android:text="l. narayan"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
@@ -211,7 +208,6 @@
                     android:layout_marginTop="-10dp"
                     android:background="@drawable/button_background"
                     android:fontFamily="@font/roboto_bold"
-                    android:src="@drawable/side_5"
                     android:text="l. narayan"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
@@ -265,7 +261,6 @@
                 android:layout_marginTop="-10dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/roboto_bold"
-                android:src="@drawable/side_5"
                 android:text="l. narayan"
                 android:textAllCaps="false"
                 android:textColor="@color/white"

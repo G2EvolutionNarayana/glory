@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.EditPlayerActivity">
+    tools:context="com.glory.apk.Activity.EditPlayerActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -20,10 +20,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/xTvMax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Max 3 players from a team"
+            android:text="Max _ players from a team"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
@@ -70,7 +71,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_marginLeft="8dp"
-                    app:srcCompat="@drawable/ind" />
+                    app:srcCompat="@drawable/default_team_logo" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -131,7 +132,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_marginLeft="8dp"
-                    app:srcCompat="@drawable/pak" />
+                    app:srcCompat="@drawable/default_team_logo" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -155,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:text="100"/>
+                        android:text=""/>
 
                 </LinearLayout>
 

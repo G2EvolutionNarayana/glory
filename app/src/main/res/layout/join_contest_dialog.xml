@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="15dp"
+    android:layout_margin="20dp"
+    android:layout_gravity="center"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:layout_gravity="center_horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/top_curved_dialog"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="CONFIRMATION"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_bold"
+                android:textAllCaps="true"
+                android:textSize="14dp"
+              />
+            <ImageView
+                android:id="@+id/xIvClear"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_clear"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="To Pay"
+                    android:gravity="center"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="12dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/xTvEntryAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="0.00"
+                    android:gravity="center"
+                    android:paddingRight="20dp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textAllCaps="true"
+                    android:textSize="12dp"
+                    />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="By joining the contest, you accept GLORY 5'S T&amp;C. And Confirm that you not resident of Assam,Odisa,Nagaland,Sikkim &amp; Telangana."
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="10dp"
+            />
+
+
+
+        <TextView
+            android:id="@+id/xTvJoinContest"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="JOIN CONTEST"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_gravity="center"
+            android:background="@drawable/gray_rounded_background"
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            android:gravity="center"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

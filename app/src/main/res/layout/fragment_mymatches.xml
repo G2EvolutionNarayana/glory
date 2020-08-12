@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:theme="@style/Base.Widget.Design.TabLayout"
         android:background="@color/black"
-
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="@color/white"
         app:tabMaxWidth="0dp"

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#424242"
+    tools:context="com.glory.apk.Activity.WithdrawalListActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@drawable/borderlogin"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageViewprofile"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="left"
+                android:src="@mipmap/ic_launcher_icon_round" />
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Withdrawal List"
+            android:textColor="@color/theme"
+            android:textSize="18sp"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_gravity="center"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/xRecyclerViewWithdraw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/xTvNoWithdraw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="No Withdrawal "
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:padding="10dp"
+        android:fontFamily="@font/roboto_bold"
+        android:layout_gravity="center"/>
+</RelativeLayout>

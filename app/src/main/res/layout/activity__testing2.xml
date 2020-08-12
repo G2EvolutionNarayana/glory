@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_Testing2">
+    tools:context="com.glory.apk.Activity_Testing2">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

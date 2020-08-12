@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context="com.glory.apk.Activity.FinalWithDrawAmountActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+
+                android:background="@null"
+
+                android:paddingLeft="0dp"
+                android:paddingTop="4dp"
+
+                android:src="@drawable/backbutton" />
+
+            <Button
+                android:id="@+id/xBtnWithDraw"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_white_corner_curve_bg"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Withdraw"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
+                android:text="\u20B9"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+            <EditText
+                android:id="@+id/xEtWithDrawAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="top"
+                android:hint="0.00"
+                android:includeFontPadding="false"
+                android:inputType="number"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="35dp" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/xTvFaq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="You have \u20B9 25.00 winning amount available."
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/xIvBankImage"
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_bank" />
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/xIvBankImage"
+                        android:layout_alignBottom="@+id/xIvBankImage"
+                        android:layout_toLeftOf="@+id/xIvDelate"
+
+                        android:layout_toRightOf="@+id/xIvBankImage">
+
+                        <TextView
+                            android:id="@+id/xTvBankName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/xTvAccountNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:letterSpacing="0.1"
+                            android:maxLines="1"
+                            android:textColor="@color/black" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/xTvWithDraw"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="Withdraw"
+        android:textColor="@color/white"
+        android:textSize="17dp" />
+
+</RelativeLayout>

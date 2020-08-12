@@ -20,8 +20,8 @@
 
         <ImageView
             android:id="@+id/player_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -32,19 +32,41 @@
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/user" />
 
-        <TextView
-            android:id="@+id/player_name"
+        <LinearLayout
+            android:id="@+id/xRelayxRelayplayer_name"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="M S Dhoni"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/player_img"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toEndOf="@+id/player_img"
-            app:layout_constraintTop_toTopOf="@+id/player_img" />
+            app:layout_constraintTop_toTopOf="@+id/player_img">
+
+            <TextView
+                android:id="@+id/player_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:fontFamily="@font/roboto_medium"
+                />
+            <TextView
+                android:id="@+id/xTvPlayerType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:visibility="gone"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+
 
 
         <TextView
@@ -56,9 +78,9 @@
             android:text="158"
             android:visibility="gone"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="@+id/player_name"
+            app:layout_constraintBottom_toBottomOf="@+id/xRelayxRelayplayer_name"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/player_name" />
+            app:layout_constraintTop_toTopOf="@+id/xRelayxRelayplayer_name" />
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -70,8 +92,8 @@
 
         <ImageView
             android:id="@+id/power_hitter"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
             android:layout_marginEnd="32dp"

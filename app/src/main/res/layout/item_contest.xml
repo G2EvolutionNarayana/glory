@@ -44,7 +44,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
-        android:text="\u20B9 5 Lakhs"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -68,7 +67,6 @@
             android:id="@+id/entry_fee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="\u20B9 75"
             android:textColor="@color/white" />
     </LinearLayout>
 

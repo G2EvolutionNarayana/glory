@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E8E8E3">
+                <TextView
+                    android:id="@+id/xTvReferenceNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="123456789234"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16dp"
+                    android:layout_toLeftOf="@+id/xTvAmount"
+                    android:fontFamily="@font/roboto_medium"
+                    android:includeFontPadding="false"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/xTvAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_alignParentRight="true"
+                    android:text="15000"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:includeFontPadding="false"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"/>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+              >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Date Time"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="14dp"
+                    android:layout_toLeftOf="@+id/xTvDateTime"
+                    android:fontFamily="@font/roboto_medium"
+                    android:includeFontPadding="false"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/xTvDateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:text="06/07/2019"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:includeFontPadding="false"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"/>
+
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               >
+                <TextView
+                    android:id="@+id/xTvReferenceNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Status"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="14dp"
+                    android:layout_toLeftOf="@+id/xTvAmount"
+                    android:fontFamily="@font/roboto_medium"
+                    android:includeFontPadding="false"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/xTvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:includeFontPadding="false"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"/>
+
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

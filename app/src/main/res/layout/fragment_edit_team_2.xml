@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
-    tools:context=".Fragment.EditTeam_2Fragment">
+    tools:context="com.glory.apk.Fragment.EditTeam_2Fragment">
     <!-- TODO: Update blank fragment layout -->
 
     <androidx.recyclerview.widget.RecyclerView
@@ -25,6 +25,7 @@
         android:id="@+id/xLinLayMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:orientation="vertical"
         android:padding="10dp">
         <TextView

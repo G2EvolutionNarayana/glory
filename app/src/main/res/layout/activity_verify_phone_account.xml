@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
 
-    tools:context=".Activity.VerifyPhoneAccountActivity">
+    tools:context="com.glory.apk.Activity.VerifyPhoneAccountActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="140dp"

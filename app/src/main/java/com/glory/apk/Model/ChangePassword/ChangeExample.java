@@ -1,0 +1,29 @@
+package com.glory.apk.Model.ChangePassword;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+public class ChangeExample {
+    @SerializedName("status")
+    @Expose
+    private String status;
+    @SerializedName("response")
+    @Expose
+    private ChangeResponse changeResponse;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public ChangeResponse getChangeResponse() {
+        return changeResponse;
+    }
+
+    public void setChangeResponse(ChangeResponse changeResponse) {
+        this.changeResponse = changeResponse;
+    }
+}

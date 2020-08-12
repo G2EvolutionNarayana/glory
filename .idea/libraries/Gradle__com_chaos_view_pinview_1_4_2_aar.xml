@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.chaos.view:pinview:1.4.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5e762c0ee41089cfaebf75bf48eb6ab4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5e762c0ee41089cfaebf75bf48eb6ab4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a63490d443d46d2352deff1acc586975/jetified-pinview-1.4.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a63490d443d46d2352deff1acc586975/jetified-pinview-1.4.2/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.chaos.view/pinview/1.4.2/c91a1bb1e80ef6edd12ba1e726318b39770c7760/pinview-1.4.2-javadoc.jar!/" />

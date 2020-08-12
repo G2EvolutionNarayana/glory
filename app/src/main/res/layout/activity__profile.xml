@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".Activity.Activity_Profile">
+    tools:context="com.glory.apk.Activity.Activity_Profile">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -40,19 +40,43 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editname"
+                    android:id="@+id/editfullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
-                    android:focusable="false"
-                    android:editable="false"
                     android:background="@drawable/bordergrey"
                     android:drawableLeft="@drawable/ic_action_person"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:hint=" Fullname "
+
                     android:padding="8dp"
                     android:singleLine="true"
                     android:textSize="13dp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="25dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:background="@drawable/bordergrey"
+                    android:drawableLeft="@drawable/ic_action_person"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:hint=" Username "
+                    android:padding="8dp"
+                    android:singleLine="true"
+                    android:textSize="13dp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,13 +91,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
-                    android:focusable="false"
-                    android:editable="false"
                     android:background="@drawable/bordergrey"
                     android:drawableLeft="@drawable/ic_action_email"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:inputType="textEmailAddress"
                     android:padding="8dp"
                     android:singleLine="true"
-                    android:inputType="textEmailAddress"
                     android:textSize="13dp" />
             </LinearLayout>
 
@@ -90,15 +114,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
-                    android:focusable="false"
-                    android:editable="false"
-                    android:hint="Mobile number"
                     android:background="@drawable/bordergrey"
                     android:drawableLeft="@drawable/ic_action_phone"
-                    android:textColor="@color/black"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:hint="Mobile number"
+                    android:inputType="number"
                     android:padding="8dp"
                     android:singleLine="true"
-                    android:inputType="number"
+                    android:textColor="@color/black"
                     android:textSize="13dp" />
             </LinearLayout>
 
@@ -106,179 +130,180 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="25dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/textdob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="false"
-                    android:editable="false"
-                    android:clickable="false"
                     android:layout_weight=".4"
                     android:background="@drawable/bordergrey"
+                    android:clickable="false"
                     android:drawableLeft="@drawable/ic_action_person"
-                    android:textColor="@color/black"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:inputType="phone"
                     android:padding="8dp"
                     android:singleLine="true"
-                    android:inputType="phone"
+                    android:textColor="@color/black"
                     android:textSize="13dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="25dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/textgender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="false"
-                    android:editable="false"
-                    android:clickable="false"
-                    android:textColor="@color/black"
                     android:layout_weight=".4"
-                    android:drawableLeft="@drawable/ic_gender"
                     android:background="@drawable/bordergrey"
+                    android:clickable="false"
+                    android:drawableLeft="@drawable/ic_gender"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:inputType="phone"
                     android:padding="8dp"
                     android:singleLine="true"
-                    android:inputType="phone"
+                    android:textColor="@color/black"
                     android:textSize="13dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/xLinLaySpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="25dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <Spinner
                     android:id="@+id/xGenderSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".4"
-                    android:focusable="false"
-                    android:editable="false"
-                    android:clickable="false"
                     android:background="@drawable/bordergrey"
+                    android:clickable="false"
                     android:drawableLeft="@drawable/ic_action_person"
+                    android:editable="false"
+                    android:focusable="false"
                     android:hint=" Gender "
                     android:padding="8dp"
                     android:singleLine="true"
                     android:textSize="13dp" />
             </LinearLayout>
 
-          <!--  <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="25dp"
-                android:orientation="horizontal">
+            <!--  <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="25dp"
+                  android:layout_marginTop="5dp"
+                  android:layout_marginEnd="25dp"
+                  android:orientation="horizontal">
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".4"
-                    android:background="@drawable/bordergrey"
-                    android:drawableLeft="@drawable/ic_action_person"
-                    android:hint=" Address "
-                    android:maxLines="3"
-                    android:padding="8dp"
-                    android:textSize="13dp" />
-            </LinearLayout>
+                  <EditText
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_weight=".4"
+                      android:background="@drawable/bordergrey"
+                      android:drawableLeft="@drawable/ic_action_person"
+                      android:hint=" Address "
+                      android:maxLines="3"
+                      android:padding="8dp"
+                      android:textSize="13dp" />
+              </LinearLayout>
+
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="25dp"
+                  android:layout_marginTop="5dp"
+                  android:layout_marginEnd="25dp"
+                  android:orientation="horizontal">
+
+                  <EditText
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_weight=".4"
+                      android:background="@drawable/bordergrey"
+                      android:drawableLeft="@drawable/ic_action_person"
+                      android:hint=" City "
+                      android:padding="8dp"
+                      android:singleLine="true"
+                      android:textSize="13dp" />
+              </LinearLayout>
+
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="25dp"
+                  android:layout_marginTop="5dp"
+                  android:layout_marginEnd="25dp"
+                  android:orientation="horizontal">
+
+
+
+                  <EditText
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_weight=".4"
+                      android:background="@drawable/bordergrey"
+                      android:drawableLeft="@drawable/ic_action_person"
+                      android:hint=" State "
+                      android:padding="8dp"
+                      android:singleLine="true"
+                      android:textSize="13dp" />
+              </LinearLayout>
+
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="25dp"
+                  android:layout_marginTop="5dp"
+                  android:layout_marginEnd="25dp"
+
+                  android:orientation="horizontal">
+
+                  <EditText
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_weight=".4"
+                      android:background="@drawable/bordergrey"
+
+                      android:drawableLeft="@drawable/ic_action_person"
+                      android:hint=" Country "
+                      android:padding="8dp"
+                      android:singleLine="true"
+                      android:textSize="13dp" />
+              </LinearLayout>-->
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="25dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".4"
-                    android:background="@drawable/bordergrey"
-                    android:drawableLeft="@drawable/ic_action_person"
-                    android:hint=" City "
-                    android:padding="8dp"
-                    android:singleLine="true"
-                    android:textSize="13dp" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="25dp"
-                android:orientation="horizontal">
-
-
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".4"
-                    android:background="@drawable/bordergrey"
-                    android:drawableLeft="@drawable/ic_action_person"
-                    android:hint=" State "
-                    android:padding="8dp"
-                    android:singleLine="true"
-                    android:textSize="13dp" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="25dp"
-
-                android:orientation="horizontal">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".4"
-                    android:background="@drawable/bordergrey"
-
-                    android:drawableLeft="@drawable/ic_action_person"
-                    android:hint=" Country "
-                    android:padding="8dp"
-                    android:singleLine="true"
-                    android:textSize="13dp" />
-            </LinearLayout>-->
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="80dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="visible">
 
                 <Button
                     android:id="@+id/butsubmit"
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginTop="5dp"
@@ -288,7 +313,8 @@
                     android:paddingLeft="0sp"
                     android:text=" Continue "
                     android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:visibility="gone" />
             </LinearLayout>
 
         </LinearLayout>

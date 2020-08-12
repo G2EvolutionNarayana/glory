@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/cricketground"
-    tools:context=".Activity.Preview5MainActivity">
+    tools:context="com.glory.apk.Activity.Preview5MainActivity">
     <ImageView
         android:id="@+id/xIvCross5"
         android:layout_width="30dp"
@@ -29,7 +29,7 @@
             android:fontFamily="@font/roboto_bold"
             android:layout_marginBottom="10dp"
             android:text="Selected Power Hitter"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
         <RelativeLayout
             android:layout_width="100dp"
             android:layout_below="@+id/hitter"
@@ -53,7 +53,6 @@
                 android:layout_marginTop="-10dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/roboto_bold"
-                android:src="@drawable/side_5"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="10sp" />
@@ -108,7 +107,6 @@
                     android:layout_marginTop="-10dp"
                     android:background="@drawable/button_background"
                     android:fontFamily="@font/roboto_bold"
-                    android:src="@drawable/side_5"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="10sp" />
@@ -157,7 +155,6 @@
                     android:layout_marginTop="-10dp"
                     android:background="@drawable/button_background"
                     android:fontFamily="@font/roboto_bold"
-                    android:src="@drawable/side_5"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="10sp" />
@@ -207,7 +204,6 @@
                     android:layout_marginTop="-10dp"
                     android:background="@drawable/button_background"
                     android:fontFamily="@font/roboto_bold"
-                    android:src="@drawable/side_5"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="10sp" />
@@ -260,7 +256,6 @@
                 android:layout_marginTop="-10dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/roboto_bold"
-                android:src="@drawable/side_5"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="10sp" />

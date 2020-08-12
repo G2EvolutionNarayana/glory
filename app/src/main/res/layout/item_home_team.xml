@@ -17,48 +17,74 @@
 
         <ImageView
             android:id="@+id/player_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
+            android:src="@drawable/player"
+            android:scaleType="fitXY"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/user" />
 
-        <TextView
-            android:id="@+id/player_name"
+            />
+
+
+        <LinearLayout
+            android:id="@+id/xRelayxRelayplayer_name"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="M S Dhoni"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/player_img"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toEndOf="@+id/player_img"
-            app:layout_constraintTop_toTopOf="@+id/player_img" />
+            app:layout_constraintTop_toTopOf="@+id/player_img">
+
+            <TextView
+                android:id="@+id/player_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:fontFamily="@font/roboto_medium"
+                />
+            <TextView
+                android:id="@+id/xTvPlayerType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:visibility="visible"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+
 
         <TextView
             android:id="@+id/credits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+            android:textSize="14dp"
             android:layout_marginLeft="32dp"
-            android:text="9.0"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="@+id/points"
-            app:layout_constraintStart_toEndOf="@+id/points"
-            app:layout_constraintTop_toTopOf="@+id/points" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/add"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/credits"
@@ -67,26 +93,11 @@
             app:srcCompat="@drawable/ic_plus"
             tools:ignore="VectorDrawableCompat" />
 
-        <TextView
-            android:id="@+id/points"
-            android:visibility="invisible"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="158"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="@+id/player_name"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/player_name" />
-
-
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
+            app:layout_constraintGuide_percent="0.55" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

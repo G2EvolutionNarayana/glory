@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.Activity_FantasyPointSystem"
+    tools:context="com.glory.apk.Activity.Activity_FantasyPointSystem"
     android:orientation="vertical">
 
     <ScrollView
@@ -120,7 +120,7 @@
                 android:layout_height="match_parent"
                 android:text="Being a part of the playing XI"
                 android:layout_weight="0.6"
-                android:textColor="@color/black"
+                android:textColor ="@color/black"
                 android:background="@color/white"
                 android:gravity="center"/>
             <TextView
@@ -791,7 +791,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="6"
+                android:text="7"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:background="@color/white"
@@ -800,7 +800,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="6"
+                android:text="7"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:background="@color/white"
@@ -809,7 +809,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="6"
+                android:text="7"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:background="@color/white"
@@ -818,7 +818,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="6"
+                android:text="7"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:background="@color/white"
@@ -844,7 +844,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="8"
+                android:text="9"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:background="@color/white"
@@ -853,7 +853,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="8"
+                android:text="9"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:background="@color/white"
@@ -862,7 +862,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="8"
+                android:text="9"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:background="@color/white"
@@ -871,7 +871,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="8"
+                android:text="9"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:background="@color/white"

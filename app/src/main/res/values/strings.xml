@@ -1,7 +1,12 @@
 <resources>
 
-    <string name="facebook_app_id">224846352025985</string>
-    <string name="fb_login_protocol_scheme">fb224846352025985</string>
+    <!--        <string name="facebook_app_id">224846352025985</string>-->
+    <!--        <string name="fb_login_protocol_scheme">fb224846352025985</string>-->
+    <!--    <string name="facebook_app_id">716822162197574</string>-->
+    <!--    <string name="fb_login_protocol_scheme">fb716822162197574</string>-->
+
+    <string name="facebook_app_id">313639976485270</string>
+    <string name="fb_login_protocol_scheme">fb313639976485270</string>
     <string name="CashFree_id">1446344dd53f698c06f9ce52136441</string>
 
     <dimen name="drawer_width">300dp</dimen>

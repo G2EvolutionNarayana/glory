@@ -65,8 +65,20 @@
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/roboto_regular"
+                    android:fontFamily="@font/roboto_medium"
                     android:textSize="14dp"
+                    />
+                <TextView
+                    android:id="@+id/xTvPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="410 pts"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="8dp"
+
                     />
             </LinearLayout>
 
@@ -84,7 +96,7 @@
                     android:gravity="center"
                     android:paddingBottom="5dp"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/roboto_regular"
+                    android:fontFamily="@font/roboto_medium"
                     android:textSize="14dp"
                     />
 

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Glory.iml" filepath="$PROJECT_DIR$/Glory.iml" group="Glory" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Glory/app" />
-      <module fileurl="file://$PROJECT_DIR$/cashfreesdk-1.4.9.4-release/cashfreesdk-1.4.9.4-release.iml" filepath="$PROJECT_DIR$/cashfreesdk-1.4.9.4-release/cashfreesdk-1.4.9.4-release.iml" group="Glory/cashfreesdk-1.4.9.4-release" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="glory/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cashfreesdk-1.4.9.8-release/cashfreesdk-1.4.9.8-release.iml" filepath="$PROJECT_DIR$/.idea/modules/cashfreesdk-1.4.9.8-release/cashfreesdk-1.4.9.8-release.iml" group="glory/cashfreesdk-1.4.9.8-release" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/glory.iml" filepath="$PROJECT_DIR$/.idea/modules/glory.iml" group="glory" />
     </modules>
   </component>
 </project>

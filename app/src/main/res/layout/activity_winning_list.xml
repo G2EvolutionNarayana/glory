@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#424242"
-    tools:context=".Activity.WinningListActivity">
+    tools:context="com.glory.apk.Activity.WinningListActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
