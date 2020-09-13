@@ -41,7 +41,6 @@
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
                     android:layout_toLeftOf="@+id/xIvImage"
-                    android:layout_toRightOf="@+id/xTvText"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
                     android:includeFontPadding="false"
